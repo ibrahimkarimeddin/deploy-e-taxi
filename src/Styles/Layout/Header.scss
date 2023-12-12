@@ -91,3 +91,17 @@
         margin-bottom: 0;
     }
 }
+
+.Header_Left{
+    >*{
+            display: none;
+    }
+}
+@media screen and (max-width: 700px) {
+
+.Header_Left{
+    >*{
+            display: block;
+    }
+}
+}

@@ -1,6 +1,7 @@
 
 
 .SideBar {
+    z-index: 9999;
     display: flex;
     flex-direction: column;
     width: 260px;
@@ -245,3 +246,44 @@ overflow-x: hidden;
         margin-inline: 40px;
       }
       }
+
+@media screen and (max-width: 700px) {
+    .out_Sidebar{
+.SideBar_Open,.noOpen{
+    display: none;
+    // transform: translateX(-100px);
+}
+    }
+
+.DashboardLayout_Body_Open,.DashboardLayout .DashboardLayout_Body{
+    left: 30px !important;
+    width : calc(100% - 60px)  !important;
+}   
+}
+
+
+
+
+.ant-drawer-left .ant-drawer-wrapper-body .ant-drawer-header{
+ display:none;
+}
+
+/* Ant drawer body */
+.ant-drawer-left .ant-drawer-wrapper-body .ant-drawer-body{
+ padding-left:0px;
+ padding-right:0px;
+ padding-top:0px;
+ padding-bottom:0px;
+}
+
+
+.ant-drawer-left{
+    
+    .SideBar_Top{
+        display: none;
+    }
+    .ant-drawer-body div .RoutesLinks{
+ margin-top:27px;
+}
+}
+
