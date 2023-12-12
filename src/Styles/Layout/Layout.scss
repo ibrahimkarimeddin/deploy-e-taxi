@@ -45,6 +45,8 @@
     }
 }
 
+
+
 .card {
 background: var(--bg);
  @include Shadow;
@@ -341,3 +343,14 @@ background: var(--bg);
 #root .title-section p{
  color:var(--secondary);
 }
+
+
+
+
+
+/* Iwjdpv */
+#root .card .sc-iwjdpV{
+ background-color:var(--bg2) !important;
+ color:var(--text) !important;
+}
+
