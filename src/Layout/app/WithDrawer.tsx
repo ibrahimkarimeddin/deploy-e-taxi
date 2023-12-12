@@ -29,7 +29,7 @@ const WithDrawer: React.FC<WithDrawerProps> = ({ button, children,title ="Basic 
         onClose={() => setOpen(false)}
         open={open}
         key={placement}
-        width="250"
+        width="260"
       
       
                 
