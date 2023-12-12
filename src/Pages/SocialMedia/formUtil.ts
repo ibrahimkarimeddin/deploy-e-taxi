@@ -24,7 +24,7 @@ interface ValidateSchema  extends formUtilCommon{
 
 export const getInitialValues = (objectToEdit: ObjectToEdit | null = null): InitialValues => {
  
-  console.log(objectToEdit);
+  // console.log(objectToEdit);
   
   return {
     id:objectToEdit?.id?? 0 ,
@@ -45,7 +45,7 @@ export const getValidationSchema = (editMode: boolean = false): Yup.Schema<Valid
 
 export const getDataToSend = (values: any): FormData => {
   const data = { ...values };
-  console.log(data);
+  // console.log(data);
   
   if(typeof data['social_media_image'] == 'string') delete data['social_media_image']
   const formData = new FormData();

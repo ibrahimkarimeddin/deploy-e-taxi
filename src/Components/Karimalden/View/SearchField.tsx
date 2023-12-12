@@ -15,7 +15,7 @@ const SearchField = () => {
 
 
     const onSearch: SearchProps['onSearch'] = (value, _e, info) => {
-        console.log(value);
+        // console.log(value);
 
         navigate(`${location?.pathname}?search=${value}`, { replace: true });
     }

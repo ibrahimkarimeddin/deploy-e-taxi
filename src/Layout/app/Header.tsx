@@ -9,6 +9,9 @@ import Theme from '../../Components/Utils/Theme';
 import { TOKEN_KEY } from '../../config/AppKey';
 import { useNavigate } from 'react-router-dom';
 import useAuthState from '../../lib/state mangment/AuthState';
+import { GiHamburgerMenu } from 'react-icons/gi';
+import WithDrawer from './WithDrawer';
+import Sidebar from './SideBar';
 
 type TUserData =
   {
@@ -29,12 +32,22 @@ const Header = () => {
     navigate('/auth', { replace: true })
   }
 
-
   
   
   return (
     <div className='Header'>
-      <div className='Header_Left'> </div>
+      <div className='Header_Left'> 
+          <WithDrawer
+    title="Cart Item"
+      button={ 
+          <div className="Cart_Icon">
+          <GiHamburgerMenu  />
+          </div>
+    }
+    >
+    <Sidebar/>
+    </WithDrawer>
+      </div>
       <div className='Header_Right'>
         <Theme />
         <Translate />

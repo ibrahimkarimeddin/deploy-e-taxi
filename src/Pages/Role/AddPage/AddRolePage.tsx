@@ -22,7 +22,7 @@ const AddRolePage: FC<AddRolePageProps> = () => {
 
 
   const handleSubmit = (values: any) => {
-    console.log(values);
+    // console.log(values);
     
     mutate({
       name: values.role_name,

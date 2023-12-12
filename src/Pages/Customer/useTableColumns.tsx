@@ -23,7 +23,6 @@ const useTableColumns :any = () => {
 
   return useMemo(
     () => [
-      
       {
         name: t("image"),
         sortable: false,
@@ -103,7 +102,6 @@ const useTableColumns :any = () => {
           return <p>{t('done')}</p>
         },
       },
-
       // {
       //   name: t("date_blocking"),
       //   sortable: false,
@@ -111,8 +109,6 @@ const useTableColumns :any = () => {
       //   width:'12%',
       //   cell: (row:any) => row?.block_timer
       // },
-
-
       {
         name: "#",
         sortable: false,
@@ -125,8 +121,8 @@ const useTableColumns :any = () => {
                 objectToEdit={row}
                 showEdit={false}
                 showDelete={false}
-                showView={false}
-                // onView={()=>navigate(`/information/customer/${row?.id}`) }
+                // showView={false}
+                onView={()=>navigate(`/information/customer/${row?.id}`) }
               />
 
           <MdOutlineBlock className="cursor-pointer primary" style={{display:row.status!=='blocked' ? "inline" : 'none', marginInline:5}} size={20}  onClick={(() =>{

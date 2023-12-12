@@ -27,7 +27,7 @@ const useAuthState = create<AuthStore>((set) => {
     isAuthenticated: !!storedToken,
     token:storedToken,
     login: async (userData) => {
-        console.log(userData);
+        // console.log(userData);
         
         localStorage.setItem(TOKEN_KEY , userData.token)
         localStorage.setItem(USER_KEY , JSON.stringify(userData.user))

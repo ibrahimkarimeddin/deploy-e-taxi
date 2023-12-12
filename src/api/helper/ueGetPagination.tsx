@@ -6,7 +6,7 @@ export default function useGetQueryPagination(KEY:string  , Api: string , params
   const axios = useAxios();
   const location = useLocation();
   const pagination = location?.search || '';
-console.log(params);
+// console.log(params);
 
   return useQuery(
     [KEY, pagination], async () => {

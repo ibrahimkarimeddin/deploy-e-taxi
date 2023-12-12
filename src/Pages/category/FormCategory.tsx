@@ -15,7 +15,7 @@ import { BaseURL } from '../../api/config';
 function FormCategory() {
   const formik = useFormikContext<InitialValues>();
   const [t] = useTranslation()
-  console.log(BaseURL+formik.getFieldProps('category_image')?.value);
+  // console.log(BaseURL+formik.getFieldProps('category_image')?.value);
   
   const {handleImageChange , preview} = useImagePreview(BaseURL+ formik.getFieldProps('category_image')?.value)
 

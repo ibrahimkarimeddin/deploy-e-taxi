@@ -10,7 +10,7 @@ import { useNavigate } from 'react-router-dom';
       const columns = useTableColumns();
       const {t} = useTranslation();
       const navigate  = useNavigate()
-        console.log(most_driver_rate);
+        // console.log(most_driver_rate);
         
 
       return (

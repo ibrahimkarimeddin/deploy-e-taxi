@@ -42,12 +42,6 @@ const ViewCustomer = () => {
           <Tabs>
             <TabList>
               <Tab><div className='d-flex'><MdLanguage size={20} /> <h6>{t("BasicInfo")}</h6></div></Tab>
-
-              <Tab><div className='d-flex'><FaSadCry size={20} /> <h6>{t("Additional Car Info")}</h6></div></Tab>
-              <Tab><div className='d-flex'><FaSadCry size={20} /> <h6>{t("Additional Driver Info")}</h6></div></Tab>
-
-              <Tab><div className='d-flex'><FaSadCry size={20} /> <h6>{t("driver_order")}</h6></div></Tab>
-
             </TabList>
             <TabBody >
               <div className=" mt-4"><BasicInfo /></div>

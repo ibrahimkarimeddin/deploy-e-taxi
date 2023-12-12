@@ -11,7 +11,7 @@ function TransactionPage() {
 
     const column   =useTableColumns()
     const {data  ,status } = useGetAllTransaction();
-  console.log(data);
+  // console.log(data);
   
     
   return (

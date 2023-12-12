@@ -19,8 +19,10 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
     <>
       <div className="DashboardLayout">
         <div className='DashboardLayout_Cover' >
-          <SideBar />
+          <div className='out_Sidebar'>
+              <SideBar />
 
+          </div>
           <div className={`DashboardLayout_Body`} id='DashboardLayout_Body'>
             <Header />
             <div className='Layout_Children'>

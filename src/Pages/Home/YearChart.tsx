@@ -19,7 +19,7 @@ const YearChart = () => {
   
 
   const handeYearChange =  (value:any) => {
-    console.log(value);
+    // console.log(value);
     if(!value){
       setDatePicker(null)
       setDatePickerForAPi(null)

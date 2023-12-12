@@ -14,7 +14,7 @@ function CategoryPage() {
     const column   =useTableColumns()
     const {data  ,status , } = useGetCategory()
 
-      console.log(data);
+      // console.log(data);
     
   return (
     // Pass Status to Layout 

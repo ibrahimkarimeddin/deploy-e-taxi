@@ -20,7 +20,7 @@ type TableActionsProps = {
 const TableActions = ({ onDelete=()=>{}   , objectToEdit,onEdit=()=>{},onView,showEdit=true,showDelete=true,showView=true,children,className }:TableActionsProps) => {
 // const TableActions = ({ onDelete=()=>{}   , objectToEdit,onEdit=()=>{},onView,showEdit=true,showDelete=true,showView=true,children }:TableActionsProps) => {
 
-  console.log(objectToEdit);
+  // console.log(objectToEdit);
   
     const {setObjectToEdit ,  setIsOpenEditModel} = usePageState()
   return (

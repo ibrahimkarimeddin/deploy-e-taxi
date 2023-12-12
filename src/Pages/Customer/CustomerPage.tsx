@@ -21,6 +21,7 @@ function CustomerPage() {
     const GiftCustomer =  useGiftCustomer()
 
 
+console.log(data);
     
   return (
     // Pass Status to Layout 

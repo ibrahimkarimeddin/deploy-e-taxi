@@ -197,13 +197,13 @@ export const RoutesLinks: RoutesLinksType[] = [
         element: <ViewDriver />,
         hidden: true
     },
-    // {
-    //     name: "s",
-    //     icon: <BsInfoCircle size={20} />,
-    //     href: "/information/customer/:id",
-    //     element: <ViewCustomer />,
-    //     hidden: true
-    // },
+    {
+        name: "s",
+        icon: <BsInfoCircle size={20} />,
+        href: "/information/customer/:id",
+        element: <ViewCustomer />,
+        hidden: true
+    },
     {
         name: "Add_Role",
         icon: <BiCategory size={20} />,
