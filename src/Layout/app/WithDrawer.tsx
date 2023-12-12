@@ -13,6 +13,7 @@ const WithDrawer: React.FC<WithDrawerProps> = ({ button, children,title ="Basic 
   const [open, setOpen] = useState(false);
   const [placement, setPlacement] = useState<DrawerProps['placement']>('left');
 
+  let What_the_language = localStorage.getItem('language')  ?? "en";
 
 
   return (
@@ -24,11 +25,11 @@ const WithDrawer: React.FC<WithDrawerProps> = ({ button, children,title ="Basic 
       </Space>
       <Drawer
         title={title}
-        placement={placement}
+        placement={What_the_language === "ar" ?  "right"  : "left"}
         closable={false}
         onClose={() => setOpen(false)}
         open={open}
-        key={placement}
+        key={What_the_language}
         width="260"
       
       

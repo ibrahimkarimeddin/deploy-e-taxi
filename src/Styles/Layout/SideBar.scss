@@ -259,6 +259,20 @@ overflow-x: hidden;
     left: 30px !important;
     width : calc(100% - 60px)  !important;
 }   
+.ar{
+    .DashboardLayout_Body{
+        right: 30px !important;
+        
+    }   
+    .DashboardLayout_Body_Open{
+        right: 30px !important;
+        width: calc(96% - 140px);
+        transition: 1s ease-in-out;
+    
+    
+    }
+}
+
 }
 
 
@@ -299,3 +313,42 @@ overflow-x: hidden;
 
 }
 
+
+
+
+
+
+.ant-drawer-right .ant-drawer-wrapper-body .ant-drawer-header{
+ display:none;
+}
+
+/* Ant drawer body */
+.ant-drawer-right .ant-drawer-wrapper-body .ant-drawer-body{
+ padding-left:0px;
+ padding-right:0px;
+ padding-top:0px;
+ padding-bottom:0px;
+ background: var(--bg);
+}
+
+
+.ant-drawer-right{
+    
+    .SideBar_Top{
+        display: none;
+    }
+    .ant-drawer-body div .RoutesLinks{  
+ margin-top:27px;
+}
+}
+
+
+.ant-drawer-right .ant-drawer-content{
+    
+             @include GlassModeCover;
+            // @include GlassModeBG;
+            color: var(--primary);
+            overflow-x: hidden;
+
+
+}
