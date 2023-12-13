@@ -28,13 +28,7 @@ const useTableColumns :any = () => {
         sortable: false,
         center: "true",
         width:'12%',
-        // padding:"10em",
         cell: (row:any) => (
-          // <HovarableImage
-          //   id={`customer_image_${row.id}`}
-          //   src={`${BaseURL}${row.image}`}
-          //   width="60"
-          // />
           <ColumnsImage src={row?.image} />
         ),
       },

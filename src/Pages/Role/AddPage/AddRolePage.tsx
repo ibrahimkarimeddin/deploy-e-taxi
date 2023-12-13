@@ -17,16 +17,15 @@ const AddRolePage: FC<AddRolePageProps> = () => {
   const {t} = useTranslation();
   const { data, isLoading: PermissionLoading } = useGetAllPermission();
   const { mutate, isLoading, isSuccess } = useAddRole();
-  const my_array: string[] = [];
+  const my_array: any[] = [];
   const Navigate = useNavigate();
 
-
   const handleSubmit = (values: any) => {
-    // console.log(values);
+    console.log(values);
     
     mutate({
       name: values.role_name,
-      permission:my_array  ,
+      permission: my_array  ,
     });
   };
 

@@ -2,10 +2,10 @@ import { Button, Upload, UploadFile } from 'antd'
 import useFormField from '../../../Hooks/useFormField';
 import { UploadOutlined } from '@ant-design/icons';
 import { BaseURL } from '../../../api/config';
+import { useTranslation } from 'react-i18next';
 
 
 const File = ({ name, label, onChange, isDisabled, props }: any) => {
-
   const { formik, t } = useFormField(name, props)
   const imageUrl = formik.values[name] ? BaseURL + formik.values[name] :  '';
 
@@ -43,7 +43,7 @@ const File = ({ name, label, onChange, isDisabled, props }: any) => {
         customRequest={customRequest}
 
       >
-        <Button className='w-100' icon={<UploadOutlined />}>Upload</Button>
+        <Button className='w-100' icon={<UploadOutlined  />}>{t("upload_image")}</Button>
       </Upload>
 
 

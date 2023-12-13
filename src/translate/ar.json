@@ -907,7 +907,7 @@
         "car_back":"خلف السيارة",
         "car_left":"يسار السيارة",
         "car_internal_back":"داخلية خلف السيارة",
-        "order_info":"معلومات الطلب",
+  "order_info":"معلومات الطلب",
         
         
 
@@ -919,7 +919,10 @@
         "residential_card":"صورة بطاقة سكن السائق",
         "yearly_front":"صورة اجازة تسجيل السيارة الامامية",
         "View_information":"عرض المعلومات",
-        "number":"الرقم"
+        "number":"الرقم",
+        "Ops":"للأسف ",
+        "An Error According":"حدث خطأ",
+        "Please Try Again Later":"الرجاء المحاولة لاحقا"
 
 
 

@@ -19,7 +19,7 @@ const AddAccount: FC = () => {
   return (
     <Card>
       <CardHeader>
-        <h4>{t("add_account")}</h4>
+        <h4 className="add_account_title">{t("add_account")}</h4>
       </CardHeader>
       <CardBody>
         <RegisterForm mutation={addMutation} />

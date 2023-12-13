@@ -6,6 +6,7 @@ import { HovarableImage } from "../../Components/Ui";
 import { BaseURL } from "../../api/config";
 import { ToggleStatus } from "../../Components/Ui/ToggleStatus";
 import { useDeleteSocialMedia, useUpdateSocialMediaStatus } from "../../api/SocialMedia";
+import ColumnsImage from "../../Components/Columns/ColumnsImage";
 
 function fnDelete(props :any ){}
 
@@ -23,29 +24,20 @@ const useTableColumns :any = () => {
         center: "true",
         cell: (row:any) => row?.social_media_link
       },
-      // {
-      //   // name: t("Image"),
-      //   sortable: false,
-      //   center: "true",
-      //   cell: (row:any) => row?.social_media_link
-      // },
       {
         name: t("image"),
-        sortable: false,
-        center: true,
-        cell: (row:any) => (
-          <HovarableImage
-            id={`category_image_${row.id}`}
-            src={`${BaseURL}${row.social_media_image}`}
-            width="35"
-          />
-        ),
+        center: "true",
+        cell: (row: any) => {
+          return (
+            <ColumnsImage src={row?.social_media_image} />
+          )
+        }
       },
       {
         name: t("status"),
         sortable: false,
         center: true,
-        cell: (row) => (
+        cell: (row:any) => (
           <ToggleStatus object={row} toggleMutation={toggleMutation} />
         ),
       },
@@ -55,7 +47,7 @@ const useTableColumns :any = () => {
         name: "#",
         sortable: false,
         center: "true",
-        cell: (row) => (
+        cell: (row:any) => (
             <Actions
 
             // importnat to return the row in on Edit Function to store in objectToEdit That Upper in Edit Modal 

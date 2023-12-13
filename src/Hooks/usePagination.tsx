@@ -19,7 +19,7 @@ export const PaginationBody = ({ data }: any) => {
 
   return (
     <Pagination
-      className='text-center mt-3'
+      className='text-center mt-3 paginateStyle'
       total={data}
       showTotal={(total: any) => `Total ${total} items`}
       pageSize={pageSize}

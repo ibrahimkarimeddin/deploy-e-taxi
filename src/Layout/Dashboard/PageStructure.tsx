@@ -22,7 +22,7 @@ const PageStructure: FC<PageStructureProps> = ({
 
   if (!data) return <StatusCard isLoading={isLoading} isError={isError} />;
   return (
-    <Card>
+    <Card className="Information_title">
       {title && (
         <CardHeader>
           <CardTitle>{t(title)}</CardTitle>

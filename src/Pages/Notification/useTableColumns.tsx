@@ -4,6 +4,7 @@ import { useTranslation } from "react-i18next";
 import Actions from "../../Components/Ui/tables/Actions";
 import { HovarableImage } from "../../Components/Ui";
 import { BaseURL } from "../../api/config";
+import ColumnsImage from "../../Components/Columns/ColumnsImage";
 
 function fnDelete(props :any ){}
 
@@ -27,15 +28,12 @@ const useTableColumns :any = () => {
       },
       {
         name: t("image"),
-        sortable: false,
-        center: true,
-        cell: (row:any) => (
-          <HovarableImage
-            id={`category_image_${row.id}`}
-            src={`${BaseURL}${row.image}`}
-            width="35"
-          />
-        ),
+        center: "true",
+        cell: (row: any) => {
+          return (
+            <ColumnsImage src={row?.image} />
+          )
+        }
       },
      
     

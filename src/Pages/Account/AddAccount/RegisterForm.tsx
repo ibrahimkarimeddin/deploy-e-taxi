@@ -15,6 +15,7 @@ import { useGetAllRoles } from "../../../api/Role";
 import { useTranslation } from "react-i18next";
 import { ValidatedField } from "../../../Components/Ui";
 import { LoadingButton } from "../../../Components/Ui/LoadingButton";
+import KarimField from "../../../Components/Karimalden/KarimField";
 
 interface RegisterFormProps {
   mutation: any;
@@ -32,7 +33,9 @@ export const RegisterForm: FC<RegisterFormProps> = ({ mutation, editMode = false
   const handleSubmit = (values: any) => {
     const dataToSend = getDataToSend(values, editMode, objectToEdit);
     mutation.mutate(dataToSend);
+    
   };
+  
 
   return (
     <Formik
@@ -44,75 +47,63 @@ export const RegisterForm: FC<RegisterFormProps> = ({ mutation, editMode = false
         <Form>
           <Row lg={2} xl={2}>
             <Col>
-              <ValidatedField
+              <KarimField
                 name="full_name"
-                label={t("full_name")}
-                placeholder={t("full_name")}
-                icon={PersonOutlineOutlinedIcon}
-                isRequired
+                label="full_name"
+                placeholder="full_name"
+                type="text"
               />
             </Col>
             <Col>
-              <p className="RoleTitle">{t("role")}</p>
-              <Select 
-              
-              options={rolesOptions}
-              value={rolesOptions.find((opt:any) => opt?.value == formik.getFieldProps('role_id').value)} className="ROleSelect"
-              onChange={(e:any)=> {
-                formik.setFieldValue('role_name',e.value)
-                formik.setFieldValue('role_id',e.value)
-              }} /> 
+              <KarimField 
+              type="Select"
+              option={rolesOptions}
+              label="Role"
+              placeholder="Select Role"
+              name="Required"
+               /> 
               <p style={{color:'red'}}>{formik.errors.role_name} </p>
             </Col>
           </Row>
           <Row xs={1} sm={1} md={2} lg={2} xl={2}>
             <Col>
-              <ValidatedField
+              <KarimField
                 name="email"
-                label={t("email")}
-                placeholder={t("email")}
-                type="email"
-                icon={MailOutlineIcon}
-                autoComplete="new-password"
-                isRequired
+                label="email"
+                placeholder="email"
+                type="text"
               />
             </Col>
             <Col>
-              <ValidatedField
+              <KarimField
                 name="phone"
-                label={t("phone")}
-                placeholder={t("phone")}
-                isRequired
+                label="phone"
+                placeholder="phone"
+                type="number"
               />
             </Col>
             {!editMode && (
               <>
                 <Col>
-                  <ValidatedField
+                  <KarimField
                     name="password"
-                    label={t("password")}
-                    placeholder={t("password")}
+                    label="password"
+                    placeholder="password"
                     type="password"
-                    autoComplete="new-password"
-                    icon={LockOutlinedIcon}
-                    isRequired
                   />
                 </Col>
                 <Col>
-                  <ValidatedField
+                  <KarimField
                     name="password_confirmation"
-                    label={t("confirm_password")}
-                    placeholder={t("confirm_password")}
+                    label="confirm_password"
+                    placeholder="confirm_password"
                     type="password"
-                    autoComplete="new-password"
-                    icon={LockOutlinedIcon}
-                    isRequired
                   />
                 </Col>
               </>
             )}
           </Row>
-          <LoadingButton
+          <LoadingButton 
             isLoading={mutation.isLoading}
             className="mt-1 float-right"
             color="primary"
@@ -164,6 +155,6 @@ function getValidationSchema(editMode: boolean) {
     full_name: Yup.string().required("required"),
     email: Yup.string().email("validation.invalid_email").required("required"),
     phone: Yup.string().required("required"),
-    role_id:Yup.string().required("required"),
+    // role_id:Yup.string().required("required"),
   });
 }

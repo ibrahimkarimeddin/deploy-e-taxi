@@ -1,0 +1,45 @@
+
+.dark{
+// pagination 
+        .ant-pagination{
+            color: #fff; 
+        }
+        .anticon{
+            color: #fff;
+        }
+        .ant-pagination-item-active{
+            background: #ffffffd6;
+            border: 1px solid var(--primary);
+            a{
+                color: black !important;
+            }
+            
+        } 
+// Add Account Page
+        .add_account_title{
+            color: #fff;
+        }
+// INformation pages
+        .Information_title{
+            color: #fff;
+        }
+//karim field image
+        .anticon svg{
+            
+            color: #fff !important;
+        }
+}
+
+
+
+
+
+
+
+
+//galss 
+.glass{
+    .error_show{
+        margin-top: 3vw !important;
+    }
+}
