@@ -20,7 +20,7 @@ const AddButtonLayout = ({haveAddModal}:any) => {
 
         }}>
             <button>
-                <span style={{fontSize:"1.3vw"}}>
+                <span >
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 24 24"

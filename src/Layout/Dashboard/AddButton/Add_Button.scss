@@ -24,3 +24,18 @@
         background-color:var(--primary);
        }
 }
+
+@media screen and (max-width: 700px) {
+    .Add_Button{
+        button{
+            font-size: 2vw !important;
+        }
+    }
+}
+@media screen and (max-width: 470px) {
+    .Add_Button{
+        button{
+            font-size: 3vw !important;
+        }
+    }
+}
