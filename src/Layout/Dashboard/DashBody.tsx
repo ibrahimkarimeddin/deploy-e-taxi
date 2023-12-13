@@ -21,7 +21,7 @@ const DashBody = ({ children , status }: { children: React.ReactNode ,status?:Qu
       <span className="error_icon"><BsEmojiFrown/></span>
       <span className="error_text">
         {t("Ops")}...<br/>
-        {t(" An Error According")} <br/>
+        {t("An Error According")} <br/>
         {t("Please Try Again Later")}
       </span>
     </div>

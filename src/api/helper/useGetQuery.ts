@@ -1,9 +1,10 @@
 import { useQuery } from 'react-query';
 import useAxios from './useAxios';
+import useAuthState from '../../lib/state mangment/AuthState';
 
 function useGetQuery(key: string, url: string , params:any={},options:any={}) {
   const axios = useAxios();
-
+  const {logout} = useAuthState()
   return useQuery(
     params ? [key, params] : key,
      async () => {
@@ -14,8 +15,12 @@ function useGetQuery(key: string, url: string , params:any={},options:any={}) {
   //   ...options
   // },
   {
-    onError: (error) => {
-      console.error('An error occurred:', error);
+    onError: (error:any) => {
+      if(error.response.status == 401 || error.response.status == 403){
+          logout()
+
+      }
+      
     },
     refetchOnWindowFocus: false,
   }
