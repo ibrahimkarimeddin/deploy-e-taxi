@@ -9,10 +9,9 @@ import { Rate } from 'antd';
 import BasicInfo from './BasicInfo';
 import { usePageState } from '../../../lib/state mangment/LayoutPagestate';
 import { useParams } from 'react-router-dom';
-import { useGetOneDriver } from '../../../api/Driver';
-import { Spinner } from 'reactstrap';
 import LoadingPage from '../../../Layout/app/LoadingPage';
 import { useTranslation } from 'react-i18next';
+import { useGetSingleCustomer } from '../../../api/Customer';
 
 const ViewCustomer = () => {
   const [BarStatus, setBarStatus] = useState({ value: 0, isLoading: false, isError: false, isSuccess: false })
@@ -22,7 +21,7 @@ const ViewCustomer = () => {
   const { setObjectToEdit, objectToEdit } = usePageState()
   const {t} = useTranslation();
   const { id } = useParams()
-  const { data } = useGetOneDriver({driver_id:id})
+  const { data } = useGetSingleCustomer({customer_id:id})
 
   useEffect(() => {
 

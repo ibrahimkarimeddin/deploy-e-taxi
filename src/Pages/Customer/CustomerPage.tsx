@@ -18,11 +18,7 @@ function CustomerPage() {
     
     const UnBlockCustomer =  useUnBlockCustomer()
     const BlockCustomer =  useBlockCustomer()
-    const GiftCustomer =  useGiftCustomer()
-
-
-console.log(data);
-    
+    const GiftCustomer =  useGiftCustomer()    
   return (
     // Pass Status to Layout 
     <DashBody status={status as QueryStatusEnum} >
