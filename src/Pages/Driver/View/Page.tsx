@@ -45,12 +45,12 @@ const ViewDriver = () => {
           <Rate defaultValue={4} disabled className='ms-2 fs-2 translate-middle-y' />
           <Tabs>
             <TabList>
-              <Tab><div className='d-flex'><MdLanguage size={20} /> <h6>{t("BasicInfo")}</h6></div></Tab>
+              <Tab><div className='SignleDriverContainer'><span className='SignleDriverInfoIcon'><MdLanguage size={20} /></span> <h6 className='SingleDriverInfo'>{t("BasicInfo")}</h6></div></Tab>
 
-              <Tab><div className='d-flex'><BsInfoCircle size={20} /> <h6>{t("Additional Car Info")}</h6></div></Tab>
-              <Tab><div className='d-flex'><BsInfoCircle size={20} /> <h6>{t("Additional Driver Info")}</h6></div></Tab>
+              <Tab><div className='SignleDriverContainer'><span className='SignleDriverInfoIcon'><BsInfoCircle size={20} /></span> <h6 className='SingleDriverInfo'>{t("Additional Car Info")}</h6></div></Tab>
+              <Tab><div className='SignleDriverContainer'><span className='SignleDriverInfoIcon'><BsInfoCircle size={20} /></span> <h6 className='SingleDriverInfo'>{t("Additional Driver Info")}</h6></div></Tab>
 
-              <Tab><div className='d-flex'><BsInfoCircle size={20} /> <h6>{t("driver_order")}</h6></div></Tab>
+              <Tab><div className='SignleDriverContainer'><span className='SignleDriverInfoIcon'><BsInfoCircle size={20} /></span><h6 className='SingleDriverInfo'>{t("driver_order")}</h6></div></Tab>
 
             </TabList>
             <TabBody >

@@ -1,0 +1,15 @@
+
+.SignleDriverContainer{
+    display: flex;justify-content: start;align-items: center;
+    .SingleDriverInfo{
+        font-size: 1vw;
+        padding-left: .5vw;
+    }
+    .SignleDriverInfoIcon{
+        svg{
+            // display: none !important;
+            // font-size: 1vw !important;
+            width: 90%;
+        }
+    }
+}
