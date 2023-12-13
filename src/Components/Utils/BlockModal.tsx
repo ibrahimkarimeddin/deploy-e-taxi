@@ -38,8 +38,8 @@ const BlockModel: React.FC<BlockModelProps> = ({Mutation ,type}) => {
       <Card>
         <CardBody>
           <div style={{ width: '100%', display: 'flex', alignItems: 'center', flexDirection: 'column' }}>
-            <h1 style={{ fontWeight: 'bold' }}> {t('blocking_'+type)}</h1>
-            <BsExclamationCircle style={{ fontSize: '100px', color: '#f8be86', margin: '20px 0' }} />
+            <h1 className='modal_info' style={{ fontWeight: 'bold' }}> {t('blocking_'+type)}</h1>
+            <BsExclamationCircle className='modal_info' style={{ fontSize: '100px', color: '#f8be86', margin: '20px 0' }} />
             <div className=''>
               <Label for='block_input'>{t('date_blocking')}</Label>
               <Input id='block_input' placeholder={t('date_blocking')} type='date' />

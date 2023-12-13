@@ -38,8 +38,8 @@ const UnBlockModal: React.FC<UnBlockModalProps> = ({Mutation ,type  }) => {
       <Card>
         <CardBody>
           <div style={{ width: '100%', display: 'flex', alignItems: 'center', flexDirection: 'column' }}>
-            <h1 style={{ fontWeight: 'bold' }}> {t('un_blocking_'+type)}</h1>
-            <CiLock style={{ fontSize: '100px', color: 'black', margin: '20px 0' }} />
+            <h1 className='modal_info' style={{ fontWeight: 'bold' }}> {t('un_blocking_'+type)}</h1>
+            <CiLock className='modal_info' style={{ fontSize: '100px', color: 'black', margin: '20px 0' }} />
             <div className=''>
               <div style={{ marginTop: 20 }}>
                 <Button color='danger' style={{ marginInline: 10 }} onClick={() => setIsopen()}>

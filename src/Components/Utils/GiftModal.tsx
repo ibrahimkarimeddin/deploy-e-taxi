@@ -38,7 +38,7 @@ const GiftModal: React.FC<GiftModalProps> = ({Mutation ,type }) => {
         <CardBody>
           <Row>
             <Col className='' style={{ width: 300 }}>
-              <Label for='enter_codes'>{t('value')}</Label>
+              <Label for='enter_codes' className='modal_info'>{t('value')}</Label>
               <Input id='enter_codes' placeholder={t('value')} type='number' />
               <Col style={{ marginTop: 20, display: 'flex', justifyContent: 'space-between' }}>
                 <Button color='danger' onClick={() => setIsOpen()}>

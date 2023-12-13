@@ -56,7 +56,7 @@ const useTableColumns: any = () => {
           switch (row?.status) {
             case ("online"): return (    <Button type="primary" className="bg-success"  >{t("online")} </Button>)
             case ("pending"): return (   <ColumnsSwitch name="status" Front={t("pending")} Back={t("pending")}   Checked />)
-            case ("offline"): return (    <Button type="primary" danger>{t("Offline")} </Button>)
+            case ("offline"): return (    <Button type="primary" danger>{t("offline")} </Button>)
 
           }
 

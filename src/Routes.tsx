@@ -40,6 +40,7 @@ import AddAccount from "./Pages/Account/AddAccount/AddccountPage";
 import EditAccount from "./Pages/Account/EditAccount/EditAccount";
 // import OneDriverPage from './Pages/Driver/View/Page'
 import ViewCustomer from "./Pages/Customer/View/Page";
+import AddNotificationPage from "./Pages/Notification/AddPage/AddNotificationPage";
 
 
 interface RoutesLinksType {
@@ -205,13 +206,19 @@ export const RoutesLinks: RoutesLinksType[] = [
         hidden: true
     },
     {
-        name: "Add_Role",
+        name: "add_Role",
         icon: <BiCategory size={20} />,
         href: "/Account/Role/Add",
         element: <AddRolePage />,
         hidden:true
     },
-
+    {
+        name: "add_notification",
+        icon: <BiCategory size={20} />,
+        href: "/Notification/Add",
+        element: <AddNotificationPage />,
+        hidden:true
+    },
     {
         name: "edit_account",
         icon: <BiCategory size={20} />,

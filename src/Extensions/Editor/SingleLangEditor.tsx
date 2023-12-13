@@ -25,7 +25,7 @@ const SingleLangEditor: FC<SingleLangEditorProps> = ({ langCode, property }) => 
   const fieldName = `translated_fields[${langCode}][${property}]`;
   return (
     <>
-      <h5>{label}</h5>
+      <h5 className="Information_title">{label}</h5>
       <HtmlEditor
         langCode={langCode}
         name={fieldName}
