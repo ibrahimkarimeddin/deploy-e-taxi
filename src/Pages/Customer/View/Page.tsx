@@ -36,7 +36,7 @@ const ViewCustomer = () => {
   return (
     <div className='ViewPage'>
       {objectToEdit && data ?
-        <ViewPage {...ViewProps}>
+        <ViewPage {...ViewProps} showProgressBar={false}>
           <Rate defaultValue={4} disabled className='ms-2 fs-2 translate-middle-y' />
           <Tabs>
             <TabList>

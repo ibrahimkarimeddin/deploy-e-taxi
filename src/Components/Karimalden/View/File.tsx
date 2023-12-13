@@ -35,6 +35,7 @@ const File = ({ name, label, onChange, isDisabled, props }: any) => {
       </label>
 
       <Upload
+        disabled={isDisabled}
         listType="picture"
         maxCount={1}
         className='w-100'

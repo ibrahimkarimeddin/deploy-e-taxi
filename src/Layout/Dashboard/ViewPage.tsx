@@ -14,9 +14,10 @@ type TViewPage ={
    getDataToSend:any,
    handleSubmit:any,
    BarStatus:any,
+   showProgressBar?:boolean,
 
 }
-const ViewPage: React.FC<TViewPage>=  ({children,getInitialValues, getValidationSchema,getDataToSend,handleSubmit,BarStatus})=> {
+const ViewPage: React.FC<TViewPage>=  ({children,getInitialValues, getValidationSchema,getDataToSend,handleSubmit,BarStatus,showProgressBar = true})=> {
 
     const {objectToEdit} = usePageState()
     const {t} = useTranslation();
@@ -40,21 +41,25 @@ const ViewPage: React.FC<TViewPage>=  ({children,getInitialValues, getValidation
             <Form>
               {/* <HeadTabs tabs={tabs} /> */}
                 {children}
-                <ProgressBar
-                  value={BarStatus?.value}
-                  isLoading={BarStatus?.isLoading}
-                  isError={BarStatus?.isError}
-                  isSuccess={BarStatus?.isSuccess}
-                />
-                <div className="d-flex mt-4 justify-content-center align-items-center">
-                  <LoadingButton
-                    type="submit"
-                    color="primary"
+                {showProgressBar && 
+                  <>
+                    <ProgressBar
+                    value={BarStatus?.value}
                     isLoading={BarStatus?.isLoading}
-                  >
-                    {t("save")}
-                  </LoadingButton>
-                </div>
+                    isError={BarStatus?.isError}
+                    isSuccess={BarStatus?.isSuccess}
+                    />
+                    <div className="d-flex mt-4 justify-content-center align-items-center">
+                      <LoadingButton
+                        type="submit"
+                        color="primary"
+                        isLoading={BarStatus?.isLoading}
+                      >
+                        {t("save")}  
+                      </LoadingButton>
+                    </div>
+                  </>
+                }
             </Form>
           )}
         </Formik>
