@@ -76,11 +76,14 @@
     text-align: right;
     display: flex;justify-content: center;align-items: flex-end; flex-direction: column;
     text-align: start;
-    width: 100%;
+    width: 100%; 
     h6,p{
+        width: 100%;
         margin-bottom: 0;
-        font-size: .8rem;
-
+        font-size: .7rem;
+    }
+    h6{
+        text-align: start !important;
     }
     p{
         opacity: .8;

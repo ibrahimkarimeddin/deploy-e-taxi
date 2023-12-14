@@ -3,17 +3,17 @@ import { buildFormData } from "../../../api/helper/buildFormData";
 
 interface FormValues {
   content: string;
-  type: string;
+  type: any;
   send_to: string;
   image: string;
   title: string;
   select: string;
 }
 
-export const getInitialValues = (): FormValues => {
+export const getInitialValues = (): any => {
   return {
     content: "",
-    type: "",
+    type: {label:"driver" , value:"driver"},
     send_to: "",
     image: "",
     title: "",
@@ -25,7 +25,7 @@ export const getValidationSchema = (editMode = false) => {
   return Yup.object().shape({
     content: Yup.string().required("Required"),
     title: Yup.string().required("Required"),
-    type: Yup.string().required("Required"),
+    type: Yup.mixed().required("Required"),
     send_to: Yup.string().required("Required"),
     // code: Yup.string().when("send_to", {
     //   is: (to: string) => {

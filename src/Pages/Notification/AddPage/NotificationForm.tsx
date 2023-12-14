@@ -9,70 +9,56 @@ import ColumnsImage from '../../../Components/Columns/ColumnsImage';
 interface NotificationFormProps {}
 
 const NotificationForm: FC<NotificationFormProps> = () => {
-  // const {t} = useTranslation();
-  // const { preview, handleImageChange } = useImagePreview();
-  // const formik = useFormikContext();
+  const {t} = useTranslation();
+  const formik = useFormikContext();
 
-  // useEffect(() => {
-  //   document.getElementById('input')!.style.display = 'none';
-  // }, []);
+ 
 
-  // const handleSelectSend = (v: string) => {
-  //   if (v === 'all') {
-  //     document.getElementById('input')!.style.display = 'none';
-  //   } else {
-  //     formik.setFieldValue('code', '');
-  //     document.getElementById('input')!.style.display = 'block';
-  //   }
-  // };
+  const handleSelectSend = (v: string) => {
+    if (v === 'all') {
+    } else {
+      formik.setFieldValue('code', '');
+    }
+  };
+
+
+  console.log(formik.getFieldProps('send_to').value);
+  
 
   return (
     <>
-      {/* <Row xs={1} sm={1} md={1} lg={2} xl={2}>
+      <Row xs={1} sm={1} md={1} lg={2} xl={2}>
         <Col>
-          <ValidatedField
+          <KarimField
             name="title"
             label={t('title')}
             placeholder={t('title')}
             type="text"
           />
-          <ValidatedField
+          <KarimField
             name="content"
             label={t('content')}
             placeholder={t('content')}
             type="text"
           />
+            <KarimField
+            name="type"
+            label={t('type')}
+            placeholder={t('type')}
+            type="Select"
+            option={[
+              {label:"driver" , value:"driver"} ,
+              {label:"customer" , value:"customer"} 
 
-          {t('type')} :
-          {formik.errors?.type && (
-            <span style={{ display: 'inline', marginInline: 20, color: 'red' }}>
-              {formik.errors?.type}
-            </span>
-          )}
+            ]}
+          />
 
-          <FormGroup style={{ marginInline: 20 }}>
-            <span style={{ marginInline: 50 }}>
-              <Field name="type" type="radio" value={'customer'} />
-              {' '}
-              <Label check>
-                {t('customer')}
-              </Label>
-            </span>
 
-            <Field type="radio" name="type" value={'driver'} />
-            {' '}
-            <Label check >
-              {t('drivers')}
-            </Label>
-          </FormGroup>
-          {t('send_to')} :
-          {formik.errors?.send_to && (
-            <span style={{ display: 'inline', marginInline: 20, color: 'red' }}>
-              {formik.errors?.send_to}
-            </span>
-          )}
 
-          <FormGroup onChange={(values) => handleSelectSend(values.target.value)} style={{ marginInline: 20 }}>
+       
+          
+
+          <FormGroup onChange={(values:any) => handleSelectSend('fef')} style={{ marginInline: 20 }}>
             <span style={{ marginInline: 50 }}>
               <Field name="send_to" type="radio" value={'all'} />
               {' '}
@@ -81,34 +67,35 @@ const NotificationForm: FC<NotificationFormProps> = () => {
               </Label>
             </span>
 
-            <Field type="radio" name="send_to" value={'multi'} />
+            <Field type="radio" name="send_to" value={'one'} />
             {' '}
             <Label check>
-              {t('multi')}
+              {t('one')}
             </Label>
           </FormGroup>
-          <span id="input"> */}
-            {/* <MultiSelectSort /> */}
-            {/* <KarimField/> */}
-          {/* </span>
-
+         {
+          formik.getFieldProps('send_to').value  == 'one' && (
+            <KarimField
+            name="phone"
+            label={t('phone')}
+            placeholder={t('phone')}
+            type="number"
+          />
+          )
+         }
+            
         </Col>
         <Col>
-          <ValidatedField
-            id="image"
-            type="file"
+          <KarimField
+            
+            type="File"
             label={t('image')}
             name="image"
-            accept="image/*"
-            onChange={(e:any) => {
-              handleImageChange(e);
-              formik.setFieldValue('image', e.target.files[0]);
-            }}
+           
           />
-          <ColumnsImage preview={preview} />
 
         </Col>
-      </Row> */} 
+      </Row>  
     </>
   );
 };

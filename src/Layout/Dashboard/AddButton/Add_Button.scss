@@ -4,7 +4,7 @@
         background-color: var(--primary);
         border-radius: 0.5vw;
         padding:.5vw 1vw;
-        font-size: 1vw !important;
+        font-size: 1vw ;
         display: flex; justify-content: center; align-items: center;
         box-shadow: 2px 2px 7px 0 var(--primary);
 
@@ -15,9 +15,9 @@
         align-items: center;
         color: var(--bg);
         font-weight: bold;
-        svg{
-            width: 90%;
-        }
+        // svg{
+        //     // width: 90%;
+        // }
        }
        
        button:hover {

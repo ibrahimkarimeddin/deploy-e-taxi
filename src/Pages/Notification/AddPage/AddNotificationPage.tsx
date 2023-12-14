@@ -16,16 +16,23 @@ const AddNotificationPage: FC<AddNotificationPageProps> = () => {
   const { mutate, isSuccess, percentCompleted, isLoading, isError } = useAddNotification();
   const {t} = useTranslation();
   const Navigate = useNavigate();
-  const handleSubmit = (value: any) => {
-    let data_to_send = {
-      ...value,
-      receiver_ids: value.send_to === 'all' ? 'all' : get_id_from_array(value.select),
-    };
-    delete data_to_send['code'];
-    delete data_to_send['select'];
-    delete data_to_send['send_to'];
 
-    mutate(getDataToSend(data_to_send));
+  console.log(percentCompleted);
+  
+  const handleSubmit = (value: any) => {
+    
+    const data  = JSON.parse(JSON.stringify(value))
+    data['type'] = data['type']['label']
+    
+    // let data_to_send = {
+    //   ...value,
+    //   receiver_ids: value.send_to === 'all',
+    // };
+    // delete data_to_send['code'];
+    // delete data_to_send['select'];
+    // delete data_to_send['send_to'];
+
+    mutate(getDataToSend(data));
   };
 
   React.useEffect(() => {
@@ -50,7 +57,6 @@ const AddNotificationPage: FC<AddNotificationPageProps> = () => {
                 <CardBody>
                   <NotificationForm />
                 </CardBody>
-                {/* <AuthComponent> */}
                   <ProgressBar
                     value={percentCompleted}
                     isLoading={isLoading}
@@ -62,7 +68,6 @@ const AddNotificationPage: FC<AddNotificationPageProps> = () => {
                       {t('add')}
                     </LoadingButton>
                   </div>
-                {/* </AuthComponent> */}
               </Form>
             )}
           </Formik>
