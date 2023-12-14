@@ -31,7 +31,10 @@ export const RegisterForm: FC<RegisterFormProps> = ({ mutation, editMode = false
   const rolesOptions = convet_data_to_select(data||[]);
 
   const handleSubmit = (values: any) => {
+    values['role_name'] = rolesOptions.find(e => e.value == values['role_id'])?.label
     const dataToSend = getDataToSend(values, editMode, objectToEdit);
+
+    
     mutation.mutate(dataToSend);
     
   };
@@ -58,9 +61,9 @@ export const RegisterForm: FC<RegisterFormProps> = ({ mutation, editMode = false
               <KarimField 
               type="Select"
               option={rolesOptions}
-              label="Role"
+              label="role"
               placeholder="Select Role"
-              name="Required"
+              name="role_id"
                /> 
               <p style={{color:'red'}}>{formik.errors.role_name} </p>
             </Col>
@@ -129,6 +132,7 @@ RegisterForm.defaultProps = {
 
 function getInitialValues(editMode: boolean, objectToEdit: any) {
   if (editMode) {
+    
     return {
       full_name: objectToEdit.full_name,
       email: objectToEdit.email,
@@ -145,7 +149,7 @@ function getInitialValues(editMode: boolean, objectToEdit: any) {
     password: "",
     password_confirmation: "",
     phone: "",
-    role_name: Roles[0],
+    role_name: "",
     role_id:''
   };
 }
@@ -155,6 +159,6 @@ function getValidationSchema(editMode: boolean) {
     full_name: Yup.string().required("required"),
     email: Yup.string().email("validation.invalid_email").required("required"),
     phone: Yup.string().required("required"),
-    // role_id:Yup.string().required("required"),
+    role_id:Yup.string().required("required"),
   });
 }

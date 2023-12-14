@@ -29,7 +29,7 @@ const EditAccount: FC<EditAccountProps> = () => {
   return (
     <Card>
       <CardHeader>
-        <h4>{t("edit_account")}</h4>
+        <h4 className="add_account_title">{t("edit_account")}</h4>
       </CardHeader>
       <CardBody>
         <RegisterForm
