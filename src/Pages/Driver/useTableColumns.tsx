@@ -10,14 +10,19 @@ import { AiOutlineGift } from "react-icons/ai";
 import { CiUnlock } from "react-icons/ci";
 import { useCommonModelState } from "../../lib/state mangment/driver&customer/ModelState";
 import { useNavigate } from "react-router-dom";
+import { useAcceptedDriver, useToggleStatusDriver } from "../../api/Driver";
 
 
 const useTableColumns: any = () => {
   const [t] = useTranslation();
   const navigate = useNavigate()
-
   const {setIsopenBlock , setIsopenGift ,setIsopenUnBlock  , setObjectId} = useCommonModelState()
 
+  const toggleMutation = useAcceptedDriver();
+  const toggleMutation2= useToggleStatusDriver()
+  const handleChange = (checked:any)=> {
+    toggleMutation.mutate({driver_id:checked})
+  }
   return useMemo(
     () => [
       {

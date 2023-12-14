@@ -63,6 +63,9 @@ import useUpdateMutation from "./helper/useUpdateMutation"
     BLOCK:`api/admin/driver/block-status`,
     GIFT:`api/admin/code/give-gift`,
     UNBLOCK:`api/admin/driver/unblock`,
+    SENDNOT:`/api/admin/driver/accept`,
+    UPDATE_STATUS2:`/api/admin/verfiy_driver`
+
   };
   
    
@@ -76,7 +79,8 @@ import useUpdateMutation from "./helper/useUpdateMutation"
   export const useUpdateDriver = () => useUpdateMutation(KEY, API.UPDATE);
   export const useDeleteDriver = () =>useDeleteMutation(KEY, API.DELETE);
 
-
+  export const useAcceptedDriver = ()=>useAddMutation(KEY ,API.SENDNOT )
   export const useBlockDriver = () =>useAddMutation(KEY, API.BLOCK );
   export const useGiftDriver = () =>useAddMutation(KEY, API.GIFT );
   export const useUnBlockDriver = () => useAddMutation(KEY, API.UNBLOCK);
+  export const useToggleStatusDriver = () =>useAddMutation(KEY, API.UPDATE_STATUS2);
