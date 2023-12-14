@@ -13,15 +13,16 @@ import { useNavigate } from 'react-router-dom';
 interface AddNotificationPageProps {}
 
 const AddNotificationPage: FC<AddNotificationPageProps> = () => {
-  const { mutate, isSuccess, percentCompleted, isLoading, isError } = useAddNotification();
+  const { mutate, isSuccess, value, isLoading, isError } = useAddNotification();
   const {t} = useTranslation();
   const Navigate = useNavigate();
 
-  console.log(percentCompleted);
   
   const handleSubmit = (value: any) => {
+
+    console.log(value);
     
-    const data  = JSON.parse(JSON.stringify(value))
+    const data  = {...value}
     data['type'] = data['type']['label']
     
     // let data_to_send = {
@@ -58,7 +59,7 @@ const AddNotificationPage: FC<AddNotificationPageProps> = () => {
                   <NotificationForm />
                 </CardBody>
                   <ProgressBar
-                    value={percentCompleted}
+                    value={value}
                     isLoading={isLoading}
                     isError={isError}
                     isSuccess={isSuccess}

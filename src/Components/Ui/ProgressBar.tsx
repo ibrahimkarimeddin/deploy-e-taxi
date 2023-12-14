@@ -2,6 +2,8 @@ import React from "react";
 import { Progress } from "reactstrap";
 
 const ProgressBar = ({ value,isLoading, isSuccess, isError  }:any) => {
+  
+  
   let color = "";
   if (!isLoading && isSuccess) {
     color = "success";

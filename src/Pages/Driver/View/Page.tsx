@@ -22,6 +22,7 @@ const ViewDriver = () => {
   const [BarStatus, setBarStatus] = useState({ value: 0, isLoading: false, isError: false, isSuccess: false })
   const handleSubmit = (values: any) => {
 
+    console.log(values);
   }
   const { setObjectToEdit, objectToEdit } = usePageState()
   const {t} = useTranslation();
