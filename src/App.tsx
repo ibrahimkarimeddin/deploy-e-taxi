@@ -5,6 +5,7 @@ import { RoutesLinks } from './Routes';
 import Layout from './Layout/app/Layout';
 import Auth from './Pages/Auth/Page';
 import EditAccount from './Pages/Account/EditAccount/EditAccount';
+import { toast } from 'react-toastify';
 const Page404 = lazy(() => import("./Layout/app/NotFoundPage"))
 
 const App = () => {
