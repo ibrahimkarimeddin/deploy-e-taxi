@@ -12,7 +12,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
   useEffect(() => {
     if (!isAuthenticated) {
 
-      navigate('/auth', { replace: true })
+      // navigate('/auth', { replace: true })
     }
   }, [navigate])
   return (
