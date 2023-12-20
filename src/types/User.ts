@@ -17,4 +17,5 @@ export interface IUser{
     "insurance_amount": number ,
     "insurance_payment_id": any,
     "role_type": string 
+    
 } 

@@ -28,7 +28,8 @@ const App = () => {
 
 
         if(item?.element){
-            <Route 
+            <Route  
+            key={index}
           path={item.href}
            element={
           <Suspense fallback={<Loading />} >

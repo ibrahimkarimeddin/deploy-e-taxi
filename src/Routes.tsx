@@ -16,6 +16,8 @@ import { BiCategory, BiLockAlt } from "react-icons/bi";
 import { RiCouponFill } from "react-icons/ri";
 import { IoPersonAddSharp } from "react-icons/io5";
 import { MdOutlineManageAccounts } from "react-icons/md";
+import { TbBrandSocketIo } from "react-icons/tb";
+
 
 import HomePage from "./Pages/Home/HomePage";
 import CategoryPage from "./Pages/category/CategoryPage";
@@ -41,6 +43,8 @@ import EditAccount from "./Pages/Account/EditAccount/EditAccount";
 // import OneDriverPage from './Pages/Driver/View/Page'
 import ViewCustomer from "./Pages/Customer/View/Page";
 import AddNotificationPage from "./Pages/Notification/AddPage/AddNotificationPage";
+import SocketDebugPage from "./Pages/SocketDebug/SocketDebugPage";
+import SystemTrackPage from "./Pages/SystemTrackDriverAndOrder/SystemTrackPage";
 
 
 interface RoutesLinksType {
@@ -187,6 +191,18 @@ export const RoutesLinks: RoutesLinksType[] = [
         element: <RolePage />
         },
       ],
+    },
+    {
+        name: "socketDebug",
+        icon: <TbBrandSocketIo size={20} />,
+        href: "/socketDebug",
+        element: <SocketDebugPage />
+    },
+    {
+        name: "TrackDriverSystem",
+        icon: <TbBrandSocketIo size={20} />,
+        href: "/TrackDriverSystem",
+        element: <SystemTrackPage />
     },
     
 
