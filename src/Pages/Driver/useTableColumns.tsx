@@ -3,7 +3,7 @@ import React, { useMemo } from "react";
 import { useTranslation } from "react-i18next";
 import Actions from "../../Components/Ui/tables/Actions";
 import ColumnsImage from "../../Components/Columns/ColumnsImage";
-import { Button } from "antd";
+import { Button, Switch } from "antd";
 import ColumnsSwitch from "../../Components/Columns/ColumnsSwitch";
 import { MdOutlineBlock } from "react-icons/md";
 import { AiOutlineGift } from "react-icons/ai";
@@ -11,6 +11,8 @@ import { CiUnlock } from "react-icons/ci";
 import { useCommonModelState } from "../../lib/state mangment/driver&customer/ModelState";
 import { useNavigate } from "react-router-dom";
 import { useAcceptedDriver, useToggleStatusDriver } from "../../api/Driver";
+import { ToggleStatus } from "../../Components/Ui/ToggleStatus";
+import LoadingSpinner from "../../Components/Ui/LoadingSpinner";
 
 
 const useTableColumns: any = () => {
@@ -57,34 +59,53 @@ const useTableColumns: any = () => {
       {
         name: t("status"),
         center: "true",
-        cell: (row: any) => {
-          switch (row?.status) {
-            case ("online"): return (    <Button type="primary" className="bg-success"  >{t("online")} </Button>)
-            case ("pending"): return (   <ColumnsSwitch name="status" Front={t("pending")} Back={t("pending")}   Checked />)
-            case ("offline"): return (    <Button type="primary" danger>{t("offline")} </Button>)
-
+        // cell: (row: any) => {
+        //   switch (row?.status) {
+        //     case ("online"): return (    <Button type="primary" className="bg-success"  >{t("online")} </Button>)
+        //     case ("pending"): return (   <ColumnsSwitch name="status" Front={t("pending")} Back={t("pending")}   Checked />)
+        //     case ("offline"): return (    <Button type="primary" danger>{t("offline")} </Button>)
+        //   }
+        // }
+        cell: (row:any) => {
+          if(toggleMutation?.isLoading && row?.status === 'pending'){
+            return <LoadingSpinner />  
           }
-
-        }
+         if(!(row.status ==='pending')){
+          return <span style={{color:"white" , background:row.status ==='online'?"#19ab27": 'red' , padding:"10px", width:80  ,fontSize:10  , borderRadius:12, textAlign:"center" }}>{t(row.status)}</span>
+         }
+          return (
+            <div>
+              <p style={{margin:"0"}}>{t('pending')}</p>
+                <label>
+                  <Switch onChange={()=>handleChange(row.id)} checked={false} />
+                </label>
+            </div>
+          )
+          
+        },
       },
       {
         name: t("phone_verfication"),
         center: "true",
-         cell: (row: any) => {
-          switch (row?.phone_verfication) {
-            case (1): return (    <Button type="dashed"   >{t("done")} </Button>)
-            case (0): return (   <ColumnsSwitch  name="status"  Front={t("in_active")} Back={t("active")} Checked />)
+        //  cell: (row: any) => {
+        //   switch (row?.phone_verfication) {
+        //     case (1): return (    <Button type="dashed"   >{t("done")} </Button>)
+        //     case (0): return (   <ColumnsSwitch  name="status"  Front={t("in_active")} Back={t("active")} Checked />)
+        //   }
+        // }
+        cell: (row) => {
 
+          row['is_active'] =false
+
+          if(row?.phone_verfication == 0){
+            return (
+              <ToggleStatus object={row} toggleMutation={toggleMutation2} />
+            )
           }
-
-        }
+         
+          return <p>{t('done')}</p>
+        },
       },
-      // {
-      //   name: t("block_timer"),
-      //   center: "true",
-      //   cell: (row: any) => row?.block_timer
-      // },
-
       {
         name: "#",
         sortable: false,
@@ -126,4 +147,3 @@ const useTableColumns: any = () => {
 };
 
 export default useTableColumns;
-
