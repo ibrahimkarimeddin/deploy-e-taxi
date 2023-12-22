@@ -32,6 +32,7 @@ export const getInitialValues = (objectToEdit: any | null = null): any => {
     customer_image: objectToEdit?.avatar ?? "",
     customer_wallet: objectToEdit?.wallet ?? "",
     customer_city:objectToEdit?.city?.google_short_name ?? "",
+    
   }
 
 

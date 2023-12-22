@@ -15,7 +15,8 @@ const API = {
   UNBLOCK:`/api/admin/customer/unblock` , 
   UPDATE_STATUS: `/api/admin/customer/update_customer_status`,
   GIFT:`api/admin/code/give-gift`,
-  UPDATE_STATUS2:`/api/admin/verfiy_customer`
+  UPDATE_STATUS2:`/api/admin/verfiy_customer`,
+  FavTrip:`/api/admin/customer/favourit_trip`
 };
 
 const KEY = "CUSTOMER";
@@ -28,5 +29,6 @@ export const useDeleteCustomer = ()=> useDeleteMutation(KEY, API.DELETE, 'custom
 export const useUnBlockCustomer = () =>useAddMutation(KEY, API.UNBLOCK );
 export const useGiftCustomer= () =>useAddMutation(KEY, API.GIFT );
 
-
 export const useToggleStatusCustomer = () =>useAddMutation(KEY, API.UPDATE_STATUS2);
+
+export const useGetFavTrips = (params?:any) =>useGetQuery(KEY, API.FavTrip, params);

@@ -3,8 +3,8 @@ import React, { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next';
 import LoadingPage from '../../Layout/app/LoadingPage';
 import GoogleMapDraw from './GoogleMapDraw';
-
-
+import axios from 'axios';
+import { BASE_URL_SOCKET } from '../../lib/SocketProvider';
 
 
 
@@ -12,24 +12,42 @@ import GoogleMapDraw from './GoogleMapDraw';
 const SystemTrackPage = () => {
 
   const {t} = useTranslation();
-
-
-
-
+  const  [Driver , setDriver  ] = useState<null | any[]>(null)
   const { isLoaded } = useJsApiLoader({
     id: 'google-map-script',
     googleMapsApiKey: "AIzaSyDZrGqtL1iBm9ZOTdfT-vW-3wpV-LO608M",
     libraries: ['places']
   })
 
+    useEffect(()=>{
 
-  if(!isLoaded){
+      async function goAsync(){
+
+        setDriver(await getDriverOnline())
+      }
+      
+      
+      goAsync();
+    },[])
+
+    
+  if(!isLoaded || !Driver){
     return <LoadingPage />
   }
   return (
-    <GoogleMapDraw/>
+    <GoogleMapDraw  drivers={Driver} />
 
   )
 }
 
 export default SystemTrackPage
+
+
+
+export async function getDriverOnline (){
+
+
+  const data = await axios.get(BASE_URL_SOCKET)
+  
+  return data.data
+}

@@ -14,8 +14,8 @@ function useAxios() {
   
   if(isAuthenticated){
 
-    buildAxios.withHeaders({ Authorization: 'Bearer '+token })
-  }
+    buildAxios.withHeaders({ Authorization: 'Bearer '+ token })
+  } 
   
   return (
     buildAxios.build()

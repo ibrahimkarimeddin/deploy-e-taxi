@@ -17,6 +17,7 @@ import { RiCouponFill } from "react-icons/ri";
 import { IoPersonAddSharp } from "react-icons/io5";
 import { MdOutlineManageAccounts } from "react-icons/md";
 import { TbBrandSocketIo } from "react-icons/tb";
+import { BsPersonFillAdd } from "react-icons/bs";
 
 
 import HomePage from "./Pages/Home/HomePage";
@@ -45,13 +46,14 @@ import ViewCustomer from "./Pages/Customer/View/Page";
 import AddNotificationPage from "./Pages/Notification/AddPage/AddNotificationPage";
 import SocketDebugPage from "./Pages/SocketDebug/SocketDebugPage";
 import SystemTrackPage from "./Pages/SystemTrackDriverAndOrder/SystemTrackPage";
+import FavouriteTripsPage from "./Pages/Customer/FavoriteTrip/FavouriteTripsPage";
 
 
 interface RoutesLinksType {
     name: string,
     href?: string,
     element?: ReactNode,
-    icon: any,
+    icon?: any,
     Viewelement?: ReactNode,
     Viewhref?: string
     children?: any
@@ -66,7 +68,6 @@ export const RoutesLinks: RoutesLinksType[] = [
         icon: <FaHome />,
         href: "/",
     },
-    
     {
         icon: <FaUserFriends size={30} />,
         // href: "/information",
@@ -81,11 +82,12 @@ export const RoutesLinks: RoutesLinksType[] = [
         },
         {
         name: "customers",
-        icon: <FaUser size={20} />,
+        icon: <BsPersonFillAdd size={20} />,
         href: "/customers",
         element: <CustomerPage />
         },
       ],
+      
     },
     {
         name: "order",
@@ -209,35 +211,36 @@ export const RoutesLinks: RoutesLinksType[] = [
 /////////////// hidden route
     {
         name: "s",
-        icon: <BsInfoCircle size={20} />,
         href: "/information/driver/:id",
         element: <ViewDriver />,
         hidden: true
     },
     {
         name: "s",
-        icon: <BsInfoCircle size={20} />,
         href: "/information/customer/:id",
         element: <ViewCustomer />,
         hidden: true
     },
     {
+        name: "s",
+        href: "/favTrip/customer/:id",
+        element: <FavouriteTripsPage />,
+        hidden: true
+    },
+    {
         name: "add_Role",
-        icon: <BiCategory size={20} />,
         href: "/Account/Role/Add",
         element: <AddRolePage />,
         hidden:true
     },
     {
         name: "add_notification",
-        icon: <BiCategory size={20} />,
         href: "/Notification/Add",
         element: <AddNotificationPage />,
         hidden:true
     },
     {
         name: "edit_account",
-        icon: <BiCategory size={20} />,
         href: "/Account/Edit",
         element: <EditAccount
          location={{
@@ -247,7 +250,6 @@ export const RoutesLinks: RoutesLinksType[] = [
     },
     {
         name: "SingleOrder",
-        icon: <BiCategory size={20} />,
         href: "/Order/:id",
         element: <SingleOrder />,
         hidden:true

@@ -16,8 +16,9 @@ function CouponPage() {
 
     const column   =useTableColumns()
     const {data  ,status } = useGetCode()
-
     const {t} = useTranslation();
+    console.log(data?.data);
+    
 
 
   

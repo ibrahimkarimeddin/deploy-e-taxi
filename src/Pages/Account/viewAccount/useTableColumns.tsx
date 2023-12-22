@@ -25,7 +25,7 @@ const useTableColumns :any = () => {
         name: t("role"),
         sortable: false,
         center: "true",
-        cell: (row:any) => row?.roles.name
+        cell: (row:any) => row?.roles?.name
       },
       {
         name: t("email"),

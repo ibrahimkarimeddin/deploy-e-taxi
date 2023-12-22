@@ -11,7 +11,8 @@ import { usePageState } from '../../../lib/state mangment/LayoutPagestate';
 import { useParams } from 'react-router-dom';
 import LoadingPage from '../../../Layout/app/LoadingPage';
 import { useTranslation } from 'react-i18next';
-import { useGetSingleCustomer } from '../../../api/Customer';
+import { useGetFavTrips, useGetSingleCustomer } from '../../../api/Customer';
+import FavTrips from './FavTrips';
 
 const ViewCustomer = () => {
   const [BarStatus, setBarStatus] = useState({ value: 0, isLoading: false, isError: false, isSuccess: false })
@@ -22,6 +23,7 @@ const ViewCustomer = () => {
   const {t} = useTranslation();
   const { id } = useParams()
   const { data } = useGetSingleCustomer({customer_id:id})
+  // const {data  ,status } = useGetFavTrips({customer_id:id});
 
   useEffect(() => {
 
@@ -41,9 +43,13 @@ const ViewCustomer = () => {
           <Tabs>
             <TabList>
               <Tab><div className='d-flex'><MdLanguage size={20} /> <h6>{t("BasicInfo")}</h6></div></Tab>
+              <Tab><div className='d-flex'><MdLanguage size={20} /> <h6>{t("fav_trips")}</h6></div></Tab>
             </TabList>
             <TabBody >
               <div className=" mt-4"><BasicInfo /></div>
+            </TabBody>
+            <TabBody >
+              <div className=" mt-4"><FavTrips /></div>
             </TabBody>
           </Tabs>
         </ViewPage>

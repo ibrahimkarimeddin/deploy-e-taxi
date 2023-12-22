@@ -59,13 +59,6 @@ const useTableColumns: any = () => {
       {
         name: t("status"),
         center: "true",
-        // cell: (row: any) => {
-        //   switch (row?.status) {
-        //     case ("online"): return (    <Button type="primary" className="bg-success"  >{t("online")} </Button>)
-        //     case ("pending"): return (   <ColumnsSwitch name="status" Front={t("pending")} Back={t("pending")}   Checked />)
-        //     case ("offline"): return (    <Button type="primary" danger>{t("offline")} </Button>)
-        //   }
-        // }
         cell: (row:any) => {
           if(toggleMutation?.isLoading && row?.status === 'pending'){
             return <LoadingSpinner />  
@@ -87,12 +80,6 @@ const useTableColumns: any = () => {
       {
         name: t("phone_verfication"),
         center: "true",
-        //  cell: (row: any) => {
-        //   switch (row?.phone_verfication) {
-        //     case (1): return (    <Button type="dashed"   >{t("done")} </Button>)
-        //     case (0): return (   <ColumnsSwitch  name="status"  Front={t("in_active")} Back={t("active")} Checked />)
-        //   }
-        // }
         cell: (row) => {
 
           row['is_active'] =false

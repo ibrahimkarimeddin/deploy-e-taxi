@@ -11,9 +11,8 @@ function useGetQuery(key: string, url: string , params:any={},options:any={}) {
     const response = await axios.get(url , {params});
     return response.data.data; 
   },
-  // {
-  //   ...options
-  // },
+  
+
   {
     onError: (error:any) => {
       if(error.response.status == 401 || error.response.status == 403){
@@ -23,6 +22,9 @@ function useGetQuery(key: string, url: string , params:any={},options:any={}) {
       
     },
     refetchOnWindowFocus: false,
+    
+    ...options
+
   }
   );
 }
