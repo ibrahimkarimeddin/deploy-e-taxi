@@ -8,6 +8,7 @@ import { io } from 'socket.io-client'
 import { disconnectSocket, getScoket } from '../../lib/SocketProvider'
 import { SocketEventLisntEnum } from '../../enums/SocketEventEnum'
 import { SocketDashboardDebugDataEvent } from '../../types/SocketEvent'
+import SendOrderToDriverModal from './SendOrderToDriverModal'
 
 // interface DriverSocketType {
 //   avatar? :string |null
@@ -27,22 +28,10 @@ const GoogleMapDraw = ({drivers}:{drivers:any[]}) => {
   const [driverId,  setDriverId] = useState<number | null>(null)
 
   const [DriverInMap , setDriverInMap ] = useState<any[]>(drivers) 
+  const [isOrderModalOpen , setisOrderModalOpen ] = useState(false) 
+  const [OrderObject , setOrderObject ] = useState(null) 
 
-  // const [JoinCity, setJoinCity] = useState("");
-  // const socket = io.connect("http://localhost:3001");
 
-  // console.log(DriverInMap);
-  
-  // const joinRoom = () => {
-  //   if (JoinCity !== "") {
-  //     console.log('Uer CLick Join ' , JoinCity);
-  //     socket.emit("join_City", JoinCity);
-  //   }
-  // };
-
-  // const UpdateLocation = () => {
-  //   socket.emit("mizo", {lat,lng:number});
-  // };
   useEffect(()=>{
     const socket  = getScoket()
 
@@ -112,7 +101,30 @@ const GoogleMapDraw = ({drivers}:{drivers:any[]}) => {
           )
          }
 
+      {   
+          OrderFromSocketLater?.map((order:any) =>
+          (
+          
+            <Marker  
+            onClick={()=>{
+                  setisOrderModalOpen(true)
+                  setOrderObject(order)
+              }}
+            position={{lat:+order?.lat,lng:+order?.long}}
+            icon={{
+              url: 'Layout/order.gif' ,
+              scaledSize:  new google.maps.Size(30 ,55)
+            }}
+            
+            />
+           
+            
+           )
+          )
+       }
+
         </GoogleMap>
+        <SendOrderToDriverModal  isOpen={isOrderModalOpen}  setIsOpen={setisOrderModalOpen} order={OrderObject}  drivers={DriverFromSocketLater}  />
       </div>
     </div>
   )
@@ -124,13 +136,83 @@ export interface DriverInfoType {
   driver_id :number ,
   lat:number,
   long:number,
+  name?:string | null
+  phone?: string |null
+  // isHaveOrder:string
+  //true - flase - pending
+}
+export interface OrderInfoType {
+  order_id :number ,
+  lat:number,
+  long:number,
   // isHaveOrder:string
   //true - flase - pending
 }
 
+
 export const DriverFromSocketLater :DriverInfoType[]  = [
   {
     driver_id:1 ,
+    lat:33.49769509159378,
+     long:36.242994877049746,
+     name:"ibrahim",
+     phone:"0951069343"
+    //  isHaveOrder:"false"
+   },
+   {
+    driver_id:2 ,
+    lat:33.49749539159378,
+     long:36.245994877049746,
+     name:"karim",
+     phone:"099999999 "
+    //  isHaveOrder:"false"
+   },
+   {
+    driver_id:3 ,
+    lat:33.49769749159378,
+     long:36.247994877049746,
+     name:"mhmad",
+     phone:"095349343"
+    //  isHaveOrder:"false"
+   },
+   {
+    driver_id:4 ,
+    lat:33.49789549159378,
+     long:36.248994877049746,
+     name:"suliman",
+     phone:"0951239343"
+    //  isHaveOrder:"false"
+   },
+   {
+    driver_id:5 ,
+    lat:33.49769559159378,
+     long:36.242994827049746,
+     name:"moaz",
+     phone:"0951062222"
+    //  isHaveOrder:"false"
+   },
+   {
+    driver_id:6 ,
+    lat:33.49769539159378,
+     long:36.242914877049746,
+     name:"test",
+     phone:"09510453259"
+    //  isHaveOrder:"false"
+   },
+   {
+    driver_id:7 ,
+    lat:33.49519509159378,
+     long:36.215994877049746,
+     name:"test2",
+     phone:"095100000"
+    //  isHaveOrder:"false"
+   }
+]
+
+
+export const OrderFromSocketLater :OrderInfoType[]  = [
+  {
+    order_id:1 ,
     lat:33.49669509159378,
      long:36.242994877049746,
     //  isHaveOrder:"false"
