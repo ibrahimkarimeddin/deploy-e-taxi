@@ -14,29 +14,42 @@ function SocketDebugPage() {
 
     const column   =useTableColumns()
      const [data , setData] = useState<SocketDashboardDebugDataEvent[]>([])
-
+    const [isConnected , setIsConnected] = useState(false)
 
      useEffect(()=>{
       const socket  = getScoket()
 
+      socket?.emit("update item", "1", { name: "updated" }, (response:any) => {
+        console.log(response.status); // ok
+      });
+      // socket?.on('connect',()=>{
+      //   setIsConnected(true)
+
         
-        socket?.on(SocketEventLisntEnum.SOCKET_DEBUG , function(dataFromSocket:SocketDashboardDebugDataEvent) {
-          console.log(dataFromSocket);
+      // })
+      // socket?.on('disconnect',function(){
+      //   setIsConnected(false)
+        
+      // })
+        
+      //   socket?.on(SocketEventLisntEnum.SOCKET_DEBUG , function(dataFromSocket:SocketDashboardDebugDataEvent) {
+      //     console.log(dataFromSocket);
           
-          setData((prev)=> ([dataFromSocket ,  ...prev]))
-        })
+      //     setData((prev)=> ([dataFromSocket ,  ...prev]))
+      //   })
 
 
-        return ()=>{
-          console.log('DIsconnect');
+      //   return ()=>{
+      //     setIsConnected(false)
           
-          disconnectSocket();
-        }
+      //     disconnectSocket();
+      //   }
      },[])
      
   return (
     // Pass Status to Layout 
     <DashBody status={QueryStatusEnum.SUCCESS} >
+        {isConnected ? "Socket ARe Connected" : "Socket Are Disconnected"}
         <DashHeader title={'SocketDebug'}  showAddButton={false}><Button className='secondary bg-primary' onClick={()=>setData([])}>Clear</Button></DashHeader>
     
       <LyTable

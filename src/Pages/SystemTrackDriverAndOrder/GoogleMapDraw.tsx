@@ -35,7 +35,7 @@ const GoogleMapDraw = ({drivers}:{drivers:any[]}) => {
   useEffect(()=>{
     const socket  = getScoket()
 
-      
+       
       socket?.on(SocketEventLisntEnum.SOCKET_DEBUG , function(dataFromSocket:any) {
         // console.log(dataFromSocket); ` 
       })

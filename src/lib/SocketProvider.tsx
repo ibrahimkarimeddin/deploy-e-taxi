@@ -2,7 +2,7 @@
 import { Socket, io } from 'socket.io-client';
 
 
-export const BASE_URL_SOCKET  = 'http://192.168.1.14:8001/';
+export const BASE_URL_SOCKET  = 'http://localhost:8001/';
 var socket :Socket | null  =  null ;
 
 
@@ -22,6 +22,7 @@ function InitSocket(){
 }
 
 export const disconnectSocket = ()=>{
+    
     socket?.disconnect();
     socket = null;
 }
