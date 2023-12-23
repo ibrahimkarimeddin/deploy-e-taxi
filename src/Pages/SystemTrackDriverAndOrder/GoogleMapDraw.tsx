@@ -1,4 +1,4 @@
-import { DirectionsRenderer, GoogleMap, Marker } from '@react-google-maps/api'
+import { DirectionsRenderer, GoogleMap, Marker, Polyline } from '@react-google-maps/api'
 import { Button, Popover } from 'antd'
 import React, { useEffect, useState } from 'react'
 import WithDrawer from '../../Hooks/WithDrawer'
@@ -30,51 +30,51 @@ const GoogleMapDraw = ({ drivers }: { drivers: any[] }) => {
   const [DriverInMap, setDriverInMap] = useState<any[]>(drivers)
   const [isOrderModalOpen, setisOrderModalOpen] = useState(false)
   const [OrderObject, setOrderObject] = useState(null)
-  const [Drivers, setDrivers] = useState<any>([])
+  const [Drivers, setDrivers] = useState<any>(drivers)
   
 
 
   useEffect(() => {
 
     const socket = getScoket()
-    setDrivers(DriverFromSocketLater)
 
 
-
-    socket?.on(SocketEventLisntEnum.SOCKET_DEBUG, function (dataFromSocket: any) {
-
-
-    })
-
-    socket?.on(SocketEventLisntEnum.SOCKET_NEW_USER, function (driver_id: number, lat: number, lng: number, name: string, phone: string) {
+    socket?.on(SocketEventLisntEnum.SOCKET_NEW_USER, function (data:any) {
+      console.log(data);
+      const {id, lat , long , full_name  , phone , coutry_code} = data
+      
       setDrivers((prevDrivers: any) => [
         ...prevDrivers,
         {
-          driver_id: driver_id,
+          driver_id: id,
           lat: lat,
-          long: lng,
-          name: name,
+          long: long,
+          name: full_name,
           phone: phone
         }
       ]);
 
     })
 
-    socket?.on(SocketEventLisntEnum.SOCKET_UPDATE_USER, function (driver_id:number,lat: number, lng: number) {
+    socket?.on(SocketEventLisntEnum.SOCKET_UPDATE_USER, function (data:any) {
+      console.log(data);
+      const {driver_id , lat , long } = data      
       setDrivers((prevDrivers:any) =>
         prevDrivers.map((driver:any) =>
           driver.driver_id === driver_id
-            ? { ...driver, lat: lat, lng: lng }
+            ? { ...driver, lat: lat, lng: long }
             : driver
         )
       );
     })
 
-    socket?.on(SocketEventLisntEnum.SOCKET_REMOVE_USER, function (driver_id: number) {
+    socket?.on(SocketEventLisntEnum.SOCKET_REMOVE_USER, function (data: any) {
+      
       setDrivers((prevDrivers: any) =>
-        prevDrivers.filter((driver: any) => driver.driver_id !== driver_id)
+        prevDrivers.filter((driver: any) => driver.driver_id !== data?.data)
       );
     })
+    
     return () => {
       console.log('DIsconnect');
 
@@ -83,7 +83,6 @@ const GoogleMapDraw = ({ drivers }: { drivers: any[] }) => {
   }, [])
 
 
-  console.log(Drivers, "Drivers");
 
 
   return (
@@ -109,6 +108,8 @@ const GoogleMapDraw = ({ drivers }: { drivers: any[] }) => {
             Drivers?.map((driver: any) =>
             (
 
+              
+              <>
               <Marker
                 onClick={() => {
                   setOpen(v => !v)
@@ -120,6 +121,26 @@ const GoogleMapDraw = ({ drivers }: { drivers: any[] }) => {
                   scaledSize: new google.maps.Size(30, 55)
                 }}
               />
+              
+               {/* <Polyline
+              path={[{
+                lat:order.lat ,
+                lng:order.long
+              } , 
+              {
+                lat:+Drivers[0]?.lat ,
+                lng:+Drivers[0]?.long 
+
+              }
+            ]}
+              options={{
+                strokeColor: '#8328f29c',
+                strokeOpacity: 1,
+                strokeWeight: 6,
+                // strokeDasharray: [10, 5],
+              }}
+            /> */}
+              </>
 
 
             )
@@ -129,7 +150,9 @@ const GoogleMapDraw = ({ drivers }: { drivers: any[] }) => {
           {
             OrderFromSocketLater?.map((order: any) =>
             (
-
+              <>
+              
+          
               <Marker
                 onClick={() => {
                   setisOrderModalOpen(true)
@@ -142,7 +165,8 @@ const GoogleMapDraw = ({ drivers }: { drivers: any[] }) => {
                 }}
 
               />
-
+              
+                  </>
 
             )
             )

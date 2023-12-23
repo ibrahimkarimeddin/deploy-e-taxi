@@ -47,9 +47,15 @@ export default SystemTrackPage
 export async function getDriverOnline (){
 
 
-  // const data = await axios.get(BASE_URL_SOCKET)
-  
-  // return data.data
 
-  return []
+  try {
+    
+    const data = await axios.get(BASE_URL_SOCKET)
+    return data.data
+  } catch (error) {
+    
+  }
+//   
+return []
+
 }
