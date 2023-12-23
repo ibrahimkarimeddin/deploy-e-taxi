@@ -19,33 +19,37 @@ function SocketDebugPage() {
      useEffect(()=>{
       const socket  = getScoket()
 
-      socket?.emit("update item", "1", { name: "updated" }, (response:any) => {
-        console.log(response.status); // ok
-      });
-      // socket?.on('connect',()=>{
-      //   setIsConnected(true)
+      // socket?.emit("update item", "1", { name: "updated" }, (response:any) => {
+      //   console.log(response.status); // ok
+      // });
+      socket?.on('connect',()=>{
+        setIsConnected(true)
 
         
-      // })
-      // socket?.on('disconnect',function(){
-      //   setIsConnected(false)
+      })
+      socket?.on('disconnect',function(){
+        setIsConnected(false)
         
-      // })
+      })
         
-      //   socket?.on(SocketEventLisntEnum.SOCKET_DEBUG , function(dataFromSocket:SocketDashboardDebugDataEvent) {
-      //     console.log(dataFromSocket);
+        socket?.on(SocketEventLisntEnum.SOCKET_DEBUG , function(dataFromSocket:SocketDashboardDebugDataEvent) {
+          console.log(dataFromSocket);
           
-      //     setData((prev)=> ([dataFromSocket ,  ...prev]))
-      //   })
+          setData((prev)=> ([dataFromSocket ,  ...prev]))
+        })
 
 
-      //   return ()=>{
-      //     setIsConnected(false)
+        return ()=>{
+          setIsConnected(false)
           
-      //     disconnectSocket();
-      //   }
+          disconnectSocket();
+        }
      },[])
      
+     if(!isConnected){
+      return <>
+      You Are Not Connected</>
+     }
   return (
     // Pass Status to Layout 
     <DashBody status={QueryStatusEnum.SUCCESS} >
