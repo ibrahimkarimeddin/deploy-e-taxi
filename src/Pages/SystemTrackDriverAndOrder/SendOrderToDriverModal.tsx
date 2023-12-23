@@ -21,8 +21,8 @@ function SendOrderToDriverModal({isOpen , setIsOpen , drivers , order}:ModalProp
     }
 
     useEffect(()=>{
-        console.log("ORder" ,order);
-        console.log("Drivers" ,drivers);
+        // console.log("ORder" ,order);
+        // console.log("Drivers" ,drivers);
         if(isOpen){
             
             setnearestDrivers(findNearestDrivers(order , drivers));
