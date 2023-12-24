@@ -1,13 +1,13 @@
 import { Button, Upload, UploadFile } from 'antd'
 import useFormField from '../../../Hooks/useFormField';
 import { UploadOutlined } from '@ant-design/icons';
-import { BaseURL } from '../../../api/config';
+import { BaseURL, BaseURL_IMAGE } from '../../../api/config';
 import { useTranslation } from 'react-i18next';
 
 
 const File = ({ name, label, onChange, isDisabled, props }: any) => {
   const { formik, t } = useFormField(name, props)
-  const imageUrl = formik.values[name] ? BaseURL + formik.values[name] :  '';
+  const imageUrl = formik.values[name] ? BaseURL_IMAGE + formik.values[name] :  '';
 
   const fileList: UploadFile[] = [
 
@@ -20,7 +20,7 @@ const File = ({ name, label, onChange, isDisabled, props }: any) => {
     }
   ];
   const FilehandleChange = (value:any) => {
-    console.log(value);
+    console.log( value?.file?.originFileObj);
     
     formik.setFieldValue(name, value.file.originFileObj)
 

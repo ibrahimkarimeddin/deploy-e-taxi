@@ -17,7 +17,7 @@ type TViewPage ={
    showProgressBar?:boolean,
 
 }
-const ViewPage: React.FC<TViewPage>=  ({children,getInitialValues, getValidationSchema,getDataToSend,handleSubmit,BarStatus,showProgressBar = true})=> {
+const ViewPage: React.FC<TViewPage>=  ({children,getInitialValues, getValidationSchema,handleSubmit,BarStatus,showProgressBar = true})=> {
 
     const {objectToEdit} = usePageState()
     const {t} = useTranslation();
@@ -33,7 +33,7 @@ const ViewPage: React.FC<TViewPage>=  ({children,getInitialValues, getValidation
       <CardBody>
         {
            <Formik
-           onSubmit={values => handleSubmit(getDataToSend(values))}
+           onSubmit={handleSubmit}
            initialValues={getInitialValues(objectToEdit)}
            validationSchema={getValidationSchema()}
         >

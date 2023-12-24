@@ -3,8 +3,8 @@ import * as Yup from "yup";
 import { buildFormData } from "../../api/helper/buildFormData";
 
 interface formUtilCommon {
-  name: string,
-  status: any
+  // name: string,
+  // status: any
 }
 
 interface ObjectToEdit extends formUtilCommon {
@@ -24,7 +24,9 @@ export const getInitialValues = (objectToEdit: any | null = null): any => {
 
   return {
     id: objectToEdit?.id ?? 0,
-    image: objectToEdit?.image ?? "",
+    driver_id:objectToEdit?.id ?? 0   ,
+    // image: objectToEdit?.image ?? "",
+    
     full_name: objectToEdit?.full_name ?? "",
     code: objectToEdit?.code ?? "",
     wallet: objectToEdit?.wallet ?? "",
@@ -33,8 +35,8 @@ export const getInitialValues = (objectToEdit: any | null = null): any => {
     block_timer: objectToEdit?.block_timer ?? "",
     birthday: objectToEdit?.birthday ?? "",
     phone: objectToEdit?.phone ?? "",
-    gender: objectToEdit?.gender ?? "",
-    avatar: objectToEdit?.avatar ?? "",
+    // gender: objectToEdit?.gender ?? 0,.
+    driver_image: objectToEdit?.avatar??'',
     created_at: objectToEdit?.created_at ?? "",
 
     //// Bacic info
@@ -44,25 +46,38 @@ export const getInitialValues = (objectToEdit: any | null = null): any => {
     car_color: objectToEdit?.car_color ?? "",
 
     //// images 
-    car_front: objectToEdit?.images[0]?.media_path ?? "",
-    car_right: objectToEdit?.images[1]?.media_path ?? "",
-    car_internal: objectToEdit?.images[2]?.media_path ?? "",
-    car_back: objectToEdit?.images[3]?.media_path ?? "",
-    car_left: objectToEdit?.images[4]?.media_path ?? "",
-    car_internal_back: objectToEdit?.images[5]?.media_path ?? "",
+    // car_front: objectToEdit?.images[0]?.media_path ?? "",
+    // car_right: objectToEdit?.images[1]?.media_path ?? "",
+    // car_internal: objectToEdit?.images[2]?.media_path ?? "",
+    // car_back: objectToEdit?.images[3]?.media_path ?? "",
+    // car_left: objectToEdit?.images[4]?.media_path ?? "",
+    // car_internal_back: objectToEdit?.images[5]?.media_path ?? "",
 
-    //// Driver info
-    license_front_image: objectToEdit?.images[6]?.media_path ?? "",
-    license_backe: objectToEdit?.images[7]?.media_path ?? "",
-    nationality_front: objectToEdit?.images[8]?.media_path ?? "",
-    residential_card: objectToEdit?.images[9]?.media_path ?? "",
-    nationality_back: objectToEdit?.images[10]?.media_path ?? "",
-    yearly_back: objectToEdit?.images[11]?.media_path ?? "",
-    yearly_front: objectToEdit?.images[12]?.media_path ?? "",
+    // //// Driver info
+    // license_front_image: objectToEdit?.images[6]?.media_path ?? "",
+    // license_backe: objectToEdit?.images[7]?.media_path ?? "",
+    // nationality_front: objectToEdit?.images[8]?.media_path ?? "",
+    // residential_card: objectToEdit?.images[9]?.media_path ?? "",
+    // nationality_back: objectToEdit?.images[10]?.media_path ?? "",
+    // yearly_back: objectToEdit?.images[11]?.media_path ?? "",
+    // yearly_front: objectToEdit?.images[12]?.media_path ?? "",
 
     
     
-    
+    driver_image1: objectToEdit?.images[0]?.media_path??'',
+    driver_image2: objectToEdit?.images[1]?.media_path??'',
+    driver_image3: objectToEdit?.images[2]?.media_path??'',
+    driver_image4: objectToEdit?.images[3]?.media_path??'',
+    driver_image5: objectToEdit?.images[4]?.media_path??'',
+    driver_image6: objectToEdit?.images[5]?.media_path??'',
+    driver_image7: objectToEdit?.images[6]?.media_path??'',
+    driver_image8: objectToEdit?.images[7]?.media_path??'',
+    driver_image9: objectToEdit?.images[8]?.media_path??'',
+    driver_image10: objectToEdit?.images[9]?.media_path??'',
+    driver_image11: objectToEdit?.images[10]?.media_path??'',
+    driver_image12: objectToEdit?.images[11]?.media_path??'',
+    driver_image13: objectToEdit?.images[12]?.media_path??'',
+
     
     
     
@@ -96,12 +111,12 @@ export const getInitialValues = (objectToEdit: any | null = null): any => {
 export const getValidationSchema = (editMode: boolean = false): Yup.Schema<ValidateSchema> => {
   // validate input  
   return Yup.object().shape({
-    name: Yup.string().required('required'),
-    status: Yup.boolean().required("status")
+    // name: Yup.string().required('required'),
+    // status: Yup.boolean().required("status")
   });
 };
 
-export const getDataToSend = (values: any): FormData => {
+export const getDataToSend = ({values}: any) => {
   const data = { ...values };
 
 
@@ -110,3 +125,20 @@ export const getDataToSend = (values: any): FormData => {
   return formData;
 };
 
+
+export const change_values_shap = (object:any)=>{
+
+  const new_array = []
+ 
+ 
+     console.log(object);
+   for(const opt in object){
+     if(opt.includes('driver_image') && opt != 'driver_image'){
+       console.log("IMAGES ",object[opt]);
+       new_array.push(object[opt])
+     }
+   }
+   return  new_array 
+   
+ 
+ }
