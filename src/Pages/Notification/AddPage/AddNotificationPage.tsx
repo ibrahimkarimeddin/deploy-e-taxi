@@ -31,7 +31,6 @@ const AddNotificationPage: FC<AddNotificationPageProps> = () => {
     // delete data_to_send['code'];
     // delete data_to_send['select'];
     // delete data_to_send['send_to'];
-
     mutate(getDataToSend(data));
   };
 

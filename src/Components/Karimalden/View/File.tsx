@@ -20,7 +20,6 @@ const File = ({ name, label, onChange, isDisabled, props }: any) => {
     }
   ];
   const FilehandleChange = (value:any) => {
-    console.log( value?.file?.originFileObj);
     
     formik.setFieldValue(name, value.file.originFileObj)
 

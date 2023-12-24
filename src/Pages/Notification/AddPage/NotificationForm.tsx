@@ -12,19 +12,12 @@ const NotificationForm: FC<NotificationFormProps> = () => {
   const {t} = useTranslation();
   const formik = useFormikContext();
 
- 
-
   const handleSelectSend = (v: string) => {
     if (v === 'all') {
     } else {
       formik.setFieldValue('code', '');
     }
-  };
-
-
-  console.log(formik.getFieldProps('send_to').value);
-  
-
+  };  
   return (
     <>
       <Row xs={1} sm={1} md={1} lg={2} xl={2}>
@@ -49,14 +42,8 @@ const NotificationForm: FC<NotificationFormProps> = () => {
             option={[
               {label:"driver" , value:"driver"} ,
               {label:"customer" , value:"customer"} 
-
             ]}
           />
-
-
-
-       
-          
 
           <FormGroup onChange={(values:any) => handleSelectSend('fef')} style={{ marginInline: 20 }}>
             <span style={{ marginInline: 50 }}>
@@ -91,9 +78,7 @@ const NotificationForm: FC<NotificationFormProps> = () => {
             type="File"
             label={t('image')}
             name="image"
-           
           />
-
         </Col>
       </Row>  
     </>
