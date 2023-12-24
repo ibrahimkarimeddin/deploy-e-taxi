@@ -3,7 +3,7 @@ import { Socket, io } from 'socket.io-client';
 import { TOKEN_KEY_SOCKET } from '../config/AppKey';
 
 
-export const BASE_URL_SOCKET  = 'http://localhost:8001/';
+export const BASE_URL_SOCKET  = 'http://192.168.1.14:8001/';
 var socket :Socket | null  =  null ;
 
 
