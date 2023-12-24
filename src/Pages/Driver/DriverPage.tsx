@@ -12,12 +12,13 @@ import SearchField from '../../Components/Karimalden/View/SearchField'
 import UnBlockModal from '../../Components/Utils/UnBlockModal'
 import BlockModel from '../../Components/Utils/BlockModal'
 import GiftModal from '../../Components/Utils/GiftModal'
+import { useTranslation } from 'react-i18next'
 
 function DriverPage() {
 
   const column = useTableColumns()
   const { data, status } = useGetDriver()
-
+  const {t} = useTranslation();
 
   const UnBlockDriver =  useUnBlockDriver()
   const BlockDriver =  useBlockDriver()
@@ -60,15 +61,15 @@ function DriverPage() {
       />
       
       <UnBlockModal  
-        type='driver'
+        type={t('driver')}
         Mutation={UnBlockDriver}     
       />
       <BlockModel  
-        type='driver'
+        type={t('driver')}
         Mutation={BlockDriver}     
       />
       <GiftModal  
-        type='driver'
+        type={t('driver')}
         Mutation={GiftDriver}     
       />
     </DashBody>

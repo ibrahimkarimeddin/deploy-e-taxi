@@ -32,7 +32,7 @@ const GiftModal: React.FC<GiftModalProps> = ({Mutation ,type }) => {
   return (
     <Modal isOpen={isOpen} centered size='md'>
       <ModalHeader toggle={() => setIsOpen()}>
-        {t(type+'_gift_page')}
+      {t("al")}{type} {t('_gift_page')}
       </ModalHeader>
       <Card>
         <CardBody>

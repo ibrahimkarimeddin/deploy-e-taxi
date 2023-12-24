@@ -6,6 +6,7 @@ import ProgressBar from "../../Components/Ui/ProgressBar";
 import { useNavigate } from "react-router-dom";
 import { usePageState } from "../../lib/state mangment/LayoutPagestate";
 import { useTranslation } from "react-i18next";
+import { useUpdateDriver } from "../../api/Driver";
 
 type TViewPage ={
   children: React.ReactNode,
@@ -15,13 +16,15 @@ type TViewPage ={
    handleSubmit:any,
    BarStatus:any,
    showProgressBar?:boolean,
-
 }
 const ViewPage: React.FC<TViewPage>=  ({children,getInitialValues, getValidationSchema,handleSubmit,BarStatus,showProgressBar = true})=> {
-
+    
     const {objectToEdit} = usePageState()
+    const {data, isLoading, isError} = useUpdateDriver();
     const {t} = useTranslation();
   const navigate = useNavigate();
+  // console.log(BarStatus);
+
   return (
     <Card className="ViewTapPage">
       <CardHeader  className="CardHeader" >

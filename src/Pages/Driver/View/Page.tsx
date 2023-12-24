@@ -27,13 +27,13 @@ const ViewDriver = () => {
     console.log(values);
   const new_images =(change_values_shap((values)))
   const new_obj = {
-     images:new_images,
-      driver_id :id,
-      full_name:values['driver_name'],
-      code:values['code'],
-      gender:values['driver_gender'] == 'Male' ? 0 :1,
-      birthday:values['driver_birthday'],
-    phone:values['driver_phone'],
+    images:new_images,
+    driver_id :id,
+    // full_name:values['driver_name'],
+    code:values['code'],
+    gender:values['driver_gender'] == 'Male' ? 0 :1,
+    // birthday:values['driver_birthday'],
+    // phone:values['driver_phone'],
     car_model:values['car_model'],
     car_color:values['car_color'],
     car_seat_count:values['car_seat_count'],
@@ -43,8 +43,6 @@ const ViewDriver = () => {
     residential_card_number:values['residential_card_number'],
     yearly_id:values['yearly_id'],
     driver_image:values['driver_image']
-
-
 }
 // console.log(new_obj)
 const formData = new FormData();

@@ -9,10 +9,12 @@ import { disconnectSocket, getScoket } from '../../lib/SocketProvider'
 import { SocketEventLisntEnum } from '../../enums/SocketEventEnum'
 import { SocketDashboardDebugDataEvent } from '../../types/SocketEvent'
 import { Button } from 'antd'
+import { useTranslation } from 'react-i18next'
 
 function SocketDebugPage() {
 
     const column   =useTableColumns()
+    const {t} = useTranslation();
      const [data , setData] = useState<SocketDashboardDebugDataEvent[]>([])
     const [isConnected , setIsConnected] = useState(false)
 
@@ -47,14 +49,14 @@ function SocketDebugPage() {
      },[])
      
      if(!isConnected){
-      return <>
-      You Are Not Connected</>
+      return <div className='socket_debug_error'>
+      {t("You Are Not Connected")}..</div>
      }
   return (
     // Pass Status to Layout 
     <DashBody status={QueryStatusEnum.SUCCESS} >
-        {isConnected ? "Socket ARe Connected" : "Socket Are Disconnected"}
-        <DashHeader title={'SocketDebug'}  showAddButton={false}><Button className='secondary bg-primary' onClick={()=>setData([])}>Clear</Button></DashHeader>
+        {isConnected ? t("Socket Are Connected") : t("Socket Are Disconnected")}
+        <DashHeader title={'SocketDebug'}  showAddButton={false}><Button className='secondary bg-primary' onClick={()=>setData([])}>{t("clear")}</Button></DashHeader>
     
       <LyTable
         data={data}

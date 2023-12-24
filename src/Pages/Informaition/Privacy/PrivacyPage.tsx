@@ -6,9 +6,10 @@ import PrivacyForm from "./PrivacyForm";
 
 const PrivacyPage: FC = () => {
   const { data, isLoading, isError } = useGetPrivacy();
-
+  
+  
   const privacy: any = data?.translations;
-
+  console.log(privacy);
   return (
     <PageStructure
       title="privacy"

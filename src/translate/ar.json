@@ -42,7 +42,7 @@
 "viewer": "مشاهد",
 "vendor": "وكيل",
 "super-admin": "سوبر أدمن",
-"client": "زبون",
+"client": "الزبون",
 "full_name": "الاسم",
 "role": "الدور",
 "phone": "رقم الهاتف",
@@ -923,7 +923,31 @@
         "Ops":"للأسف ",
         "An Error According":"حدث خطأ",
         "Please Try Again Later":"الرجاء المحاولة لاحقا",
-        "fav_trips":"الرحلات المفضلة"
+        "fav_trips":"الرحلات المفضلة",
+        "You Are Not Connected":"انت غير متصل",
+        "SocketDebug":"تصحيح مأخذ التوصيل",
+        "event":"حدث",
+        "room":"قناة",
+        "socket_id":"رمز المقبس",
+        "data":"البيانات",
+        "clear":"حذف",
+        "Socket Are Connected":"المقبس متصل",
+        "Socket Are Disconnected":"تم قطع الاتصال بالمقبس",
+        "add_block_for_":"حظر ",
+        "blocking_":"حظر ",
+        "_block_page":" ",
+        "al":"",
+        "_gift_page":"",
+        "un_block_page":"",
+        "un_blocking_":"فك حظر ",
+        "un_block_for_":"فك حظر ",
+        "Add Successful":"تم الوضع بنجاح",
+        "Has Accepte the Order":"قبل الطلب"
+
+
+
+
+
 
 
 

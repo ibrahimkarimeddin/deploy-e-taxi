@@ -10,6 +10,7 @@ import { SocketEventLisntEnum } from '../../enums/SocketEventEnum'
 import { SocketDashboardDebugDataEvent } from '../../types/SocketEvent'
 import SendOrderToDriverModal from './SendOrderToDriverModal'
 import { toast } from 'react-toastify'
+import { useTranslation } from 'react-i18next'
 
 // interface DriverSocketType {
 //   avatar? :string |null
@@ -32,7 +33,7 @@ const GoogleMapDraw = ({ drivers }: { drivers: any[] }) => {
   const [OrderObject, setOrderObject] = useState<any>(null)
   const [Drivers, setDrivers] = useState<any>(drivers)
   const [Orders, setOrders] = useState<any>([])
-
+  const {t} = useTranslation();
 
 
   useEffect(() => {
@@ -86,7 +87,7 @@ const GoogleMapDraw = ({ drivers }: { drivers: any[] }) => {
     socket?.on(SocketEventLisntEnum.SOCKET_ACCEPTE_ORDER, function (data:any) {
       console.log(data?.driver_id);
       const { lat_from , long_from  , id } = data?.data      
-      toast.success(`Driver ${data['driver_id']} Has Accepte the Order ${id}`)
+      toast.success(`${t("driver")} ${data['driver_id']} ${t("Has Accepte the Order")} ${id}`)
       setDrivers((prevDrivers:any) =>
         prevDrivers.map((driver:any) =>
           driver.id == data?.driver_id
