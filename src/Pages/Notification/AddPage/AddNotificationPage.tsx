@@ -17,7 +17,6 @@ const AddNotificationPage: FC<AddNotificationPageProps> = () => {
   const {t} = useTranslation();
   const Navigate = useNavigate();
 
-  
   const handleSubmit = (value: any) => {
 
     console.log(value);

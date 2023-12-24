@@ -47,7 +47,7 @@ const SingleOrderPage: React.FC = () => {
     <Card>
 
       <CardHeader>
-        <CardTitle style={{ display: 'flex', justifyContent: 'space-between', width: '100%' }}>
+        <CardTitle className='Single_order_title' style={{ display: 'flex', justifyContent: 'space-between', width: '100%' }}>
           {t('order_information')}
           <div>
             <LoadingButton
@@ -76,17 +76,17 @@ const SingleOrderPage: React.FC = () => {
           <div style={{ display: "flex", justifyContent: 'space-between', margin: '0px 0px 30px 0' }}>
             <span >
               {/* Order Code  */}
-              <h4 style={{ color: "black" }}>{t('order_code')}: <p style={{ display: "inline", color: "black" }}>{data?.code}</p> </h4>
+              <h4 className='Single_order_body' style={{ color: "black" }}>{t('order_code')}: <p className='Single_order_body' style={{ display: "inline", color: "black" }}>{data?.code}</p> </h4>
 
               {/* Order Status  */}
-              <h4 style={{ display: "flex", color: 'black' , alignItems:"center"  , marginTop:"20px" , marginBottom:"20px" , justifyContent:"space-around"}}>
+              <h4 className='Single_order_body' style={{ display: "flex", color: 'black' , alignItems:"center"  , marginTop:"20px" , marginBottom:"20px" , justifyContent:"space-around"}}>
                 {t('order_status')}
                 :
                  <Button className="button-order" color={data?.status === "pending" ? "secondary" : data?.status === 'canceled' ? 'danger' : 'success'}  style={{borderRadius: 5, color: "white", marginInline:"20px"}}>{(data?.status)}</Button>
 
               </h4>
 
-              <span style={{ color: 'black' }}>{t('driver_order_rate')} :<Rating initialValue={data?.rate} size={23} readonly={true} /> </span>
+              <span className='Single_order_body' style={{ color: 'black' }}>{t('driver_order_rate')} :<Rating initialValue={data?.rate} size={23} readonly={true} /> </span>
             </span>
           </div>
           <div>
@@ -96,8 +96,8 @@ const SingleOrderPage: React.FC = () => {
         <div style={{ display: "flex", justifyContent: "space-around" }} className="single-order-info">
 
           <div style={{ width: "40%" }}>
-            <h2 style={{ color: "var(--secondary)", fontSize: "20px", textAlign: "center" }}>{t("personal_information")}</h2>
-            <div style={{ border: '1px solid var(--secondary)', padding: '8px 20px', width: '100%', borderRadius: "10px", marginInline: 5, boxShadow: " 2px 1px 3px var(--secondary)" }}>
+            <h2 className='title_order' style={{ color: "var(--secondary)", fontSize: "20px", textAlign: "center" }}>{t("personal_information")}</h2>
+            <div className='single_order_container' style={{ border: '1px solid var(--secondary)', padding: '8px 20px', width: '100%', borderRadius: "10px", marginInline: 5, boxShadow: " 2px 1px 3px var(--secondary)" }}>
               <span className="text-order-container"><p className="text-order-display"><FaRedRiver size={17} /> {t('driver_name')}</p><span className='response_span'>{data?.driver_name}</span></span >
               <span className="text-order-container"><p className="text-order-display"><AiOutlinePhone size={17} />{t('driver_phone')}</p><span className='response_span'>{data?.driver_phone}</span></span >
               <span className="text-order-container"><p className="text-order-display"><HiQrcode size={17} />{t('driver_code')}</p><span className='response_span'>{data?.driver_code}</span></span >
@@ -109,8 +109,8 @@ const SingleOrderPage: React.FC = () => {
             </div>
           </div>
           <div style={{ width: "40%", background: "" }}>
-            <h2 style={{ color: "var(--secondary)", fontSize: "20px", textAlign: "center" }}>{t("trip_information")}</h2>
-            <div style={{ border: '1px solid var(--secondary)', padding: '8px 20px', width: '100%', borderRadius: "10px", marginInline: 5, boxShadow: " 2px 1px 3px var(--secondary)" }}>
+            <h2 className='title_order' style={{ color: "var(--secondary)", fontSize: "20px", textAlign: "center" }}>{t("trip_information")}</h2>
+            <div className='single_order_container' style={{ border: '1px solid var(--secondary)', padding: '8px 20px', width: '100%', borderRadius: "10px", marginInline: 5, boxShadow: " 2px 1px 3px var(--secondary)" }}>
 
               <span className="text-order-container"><p className="text-order-display">{t('start_point')}</p><span className='response_span'>{data?.place_from}</span></span >
               <span className="text-order-container"><p className="text-order-display">{t('end_point')}</p><span className='response_span'>{data?.place_to}</span></span >

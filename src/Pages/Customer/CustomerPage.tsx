@@ -10,11 +10,13 @@ import UnBlockModal from '../../Components/Utils/UnBlockModal'
 import BlockModel from '../../Components/Utils/BlockModal'
 import GiftModal from '../../Components/Utils/GiftModal'
 import SearchField from '../../Components/Karimalden/View/SearchField'
+import { useTranslation } from 'react-i18next'
 
 function CustomerPage() {
 
     const column   =useTableColumns()
     const {data  ,status } = useGetcustomer()
+    const {t} = useTranslation();
     
     const UnBlockCustomer =  useUnBlockCustomer()
     const BlockCustomer =  useBlockCustomer()
@@ -35,15 +37,15 @@ function CustomerPage() {
     />
     
       <UnBlockModal  
-        type='customer'
+        type={t('customer')}
         Mutation={UnBlockCustomer}     
       />
       <BlockModel  
-        type='customer'
+        type={t('customer')}
         Mutation={BlockCustomer}     
       />
       <GiftModal  
-        type='customer'
+        type={t('customer')}
         Mutation={GiftCustomer}     
       />
       

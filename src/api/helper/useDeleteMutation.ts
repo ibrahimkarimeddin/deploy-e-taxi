@@ -1,6 +1,7 @@
 import { useMutation, useQueryClient, UseMutationResult } from 'react-query';
 import { toast } from 'react-toastify';
 import useAxios from './useAxios';
+import { useTranslation } from 'react-i18next';
 
 type AxiosResponse = {
   message: string;
@@ -10,6 +11,7 @@ type AxiosResponse = {
 function useDeleteMutation(key:any , url: string, object_id?:any): UseMutationResult<AxiosResponse, unknown, any, unknown> {
   const axios = useAxios();
   const queryClient = useQueryClient();
+  const {t} = useTranslation();
 
   return useMutation<AxiosResponse, unknown, any, unknown>(
     async ({dataToSend,id}:any) => {
@@ -22,7 +24,7 @@ function useDeleteMutation(key:any , url: string, object_id?:any): UseMutationRe
     {
       onSuccess: (data) => {
         queryClient.invalidateQueries(key);
-        toast.success('Deleted');
+        toast.success(t('deleted_successfully'));
       }
     }
   );

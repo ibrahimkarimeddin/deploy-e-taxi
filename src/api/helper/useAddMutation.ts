@@ -22,7 +22,7 @@ function useAddMutation(key: string, url: string): UseMutationResult<AxiosRespon
     {
       onSuccess: (data) => {
         queryClient.invalidateQueries([key]);
-        toast.success(data.message || "Add Successful");
+        toast.success(data.message || t("Add Successful"));
       },
       onError: (error:any) => {
         const message = error?.response?.data?.message || t("failed_to_add_data");
