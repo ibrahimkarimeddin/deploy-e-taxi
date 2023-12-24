@@ -60,11 +60,11 @@ const useTableColumns: any = () => {
         name: t("status"),
         center: "true",
         cell: (row:any) => {
-          if(toggleMutation?.isLoading && row?.status === 'pending'){
+          if(toggleMutation?.isLoading && row?.auth_status == '0'){
             return <LoadingSpinner />  
           }
-         if(!(row.status ==='pending')){
-          return <span style={{color:"white" , background:row.status ==='online'?"#19ab27": 'red' , padding:"10px", width:80  ,fontSize:10  , borderRadius:12, textAlign:"center" }}>{t(row.status)}</span>
+         if(!(row.auth_status ==='0')){
+          return <span style={{color:"white" ,background:"#19ab27" , padding:"10px", width:80  ,fontSize:10  , borderRadius:12, textAlign:"center" }}>{t('accepted')}</span>
          }
           return (
             <div>
@@ -77,22 +77,22 @@ const useTableColumns: any = () => {
           
         },
       },
-      {
-        name: t("phone_verfication"),
-        center: "true",
-        cell: (row) => {
+      // {
+      //   name: t("phone_verfication"),
+      //   center: "true",
+      //   cell: (row) => {
 
-          row['is_active'] =false
+      //     row['is_active'] =false
 
-          if(row?.phone_verfication == 0){
-            return (
-              <ToggleStatus object={row} toggleMutation={toggleMutation2} />
-            )
-          }
+      //     if(row?.phone_verfication == 0){
+      //       return (
+      //         <ToggleStatus object={row} toggleMutation={toggleMutation2} />
+      //       )
+      //     }
          
-          return <p>{t('done')}</p>
-        },
-      },
+      //     return <p>{t('done')}</p>
+      //   },
+      // },
       {
         name: "#",
         sortable: false,
