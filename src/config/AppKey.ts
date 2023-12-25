@@ -4,6 +4,7 @@
 const PROJECT_NAME = "E_TAXI_DAHBOARD"
 
 export const TOKEN_KEY = PROJECT_NAME +  "_TOKEN"
+export const TOKEN_KEY_SOCKET = PROJECT_NAME +  "_SOKCET_TOKEN"
 
 export const USER_KEY =  PROJECT_NAME + "_USER"
 

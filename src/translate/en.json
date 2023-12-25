@@ -880,10 +880,30 @@
         "residential_card":"residential card image",
         "yearly_front":"yearly front image",
         "View_information":"View information",
-        "add_block_for_":"block",
+        "add_block_for_":"Block ",
         "number":"number",
         "Ops":"Ops",
         "An Error According":"An Error According",
         "Please Try Again Later":"Please Try Again Later",
-        "fav_trips":"Favourite Trips"
+        "fav_trips":"Favourite Trips",
+        "You Are Not Connected":"You Are Not Connected",
+        "SocketDebug":"SocketDebug",
+        "event":"event",
+        "room":"room",
+        "socket_id":"socket id",
+        "data":"data",
+        "clear":"Clear",
+        "Socket Are Connected":"Socket Are Connected",
+        "Socket Are Disconnected":"Socket Are Disconnected",
+        "blocking_":"Blocking ",
+        "_block_page":" block page",
+        "al":"",
+        "_gift_page":"gift page",
+        "un_block_page":"un block page",
+        "un_blocking_":"un blocking ",
+        "un_block_for_":"un block for ",
+        "Add Successful":"Add Successful",
+        "Has Accepte the Order":"Has Accepte the Order"
+        
+        
 }

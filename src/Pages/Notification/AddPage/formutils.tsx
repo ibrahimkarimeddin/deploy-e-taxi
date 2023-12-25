@@ -53,8 +53,8 @@ interface SelectOption {
 }
 
 export const selectFailGender: SelectOption[] = [
-  { value: "female", label: "female" },
-  { value: "male", label: "male" }
+  { value: "driver", label: "driver" },
+  { value: "customer", label: "customer" }
 ];
 
 export const Convert_data_to_select = (array: any[]): SelectOption[] => {

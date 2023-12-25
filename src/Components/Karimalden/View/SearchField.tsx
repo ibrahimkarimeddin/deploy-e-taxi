@@ -13,7 +13,6 @@ const SearchField = () => {
         
     const [searchValue, setSearchValue] = useState(searchParams.get('search')|| "");
 
-
     const onSearch: SearchProps['onSearch'] = (value, _e, info) => {
         // console.log(value);
 

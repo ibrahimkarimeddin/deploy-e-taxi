@@ -13,7 +13,7 @@ interface BlockModelProps {
 
 const BlockModel: React.FC<BlockModelProps> = ({Mutation ,type}) => {
   const {t} = useTranslation();
-  const key_to_api = type == 'customer' ? 'customer_id' :"driver_id"
+  const key_to_api = type == t('customer') ? t('customer_id') : t("driver_id")
 
   const  {isOpenBlock:isOpen , objectID , setIsopenBlock:setIsOpen} = useCommonModelState()
 
@@ -33,12 +33,12 @@ const BlockModel: React.FC<BlockModelProps> = ({Mutation ,type}) => {
   return (
     <Modal isOpen={isOpen} centered size='md'>
       <ModalHeader toggle={() => setIsOpen()}>
-        {t(type+'_block_page')}
+      {t("al")}{type}{t('_block_page')}
       </ModalHeader>
       <Card>
         <CardBody>
           <div style={{ width: '100%', display: 'flex', alignItems: 'center', flexDirection: 'column' }}>
-            <h1 className='modal_info' style={{ fontWeight: 'bold' }}> {t('blocking_'+type)}</h1>
+            <h1 className='modal_info' style={{ fontWeight: 'bold' }}> {t('blocking_')}{type}</h1>
             <BsExclamationCircle className='modal_info' style={{ fontSize: '100px', color: '#f8be86', margin: '20px 0' }} />
             <div className=''>
               <Label for='block_input'>{t('date_blocking')}</Label>
@@ -48,7 +48,7 @@ const BlockModel: React.FC<BlockModelProps> = ({Mutation ,type}) => {
                   {t('cancel')}
                 </Button>
                 <LoadingButton color='primary' onClick={handleSubmit} isLoading={Mutation.isLoading} type='submit'>
-                  {t('add_block_for_'+type)}
+                  {t('add_block_for_')}{type}
                 </LoadingButton>
               </div>
             </div>

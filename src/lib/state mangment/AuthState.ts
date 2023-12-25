@@ -1,10 +1,11 @@
 import create from 'zustand';
-import { TOKEN_KEY, USER_KEY } from '../../config/AppKey';
+import { TOKEN_KEY, TOKEN_KEY_SOCKET, USER_KEY } from '../../config/AppKey';
 import { IUser } from '../../types/User';
 
 interface LoginResponse {
     token:string  ,
-    "user": IUser
+    "user": IUser,
+    token_node:string
 }
 
 interface AuthStore {
@@ -28,8 +29,9 @@ const useAuthState = create<AuthStore>((set) => {
     token:storedToken,
     login: async (userData) => {
         // console.log(userData);
-        
         localStorage.setItem(TOKEN_KEY , userData.token)
+
+        localStorage.setItem(TOKEN_KEY_SOCKET , userData.token_node)
         localStorage.setItem(USER_KEY , JSON.stringify(userData.user))
 
         set((state)=>({user:userData.user , isAuthenticated:true , token:userData.token}))
@@ -38,6 +40,8 @@ const useAuthState = create<AuthStore>((set) => {
     logout: async () => {
          
         localStorage.removeItem(TOKEN_KEY )
+        localStorage.removeItem(TOKEN_KEY_SOCKET )
+
         localStorage.removeItem(USER_KEY )
         set((state)=>({user:null , isAuthenticated:false , token:null}))
 

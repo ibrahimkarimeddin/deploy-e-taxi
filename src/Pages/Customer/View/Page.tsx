@@ -43,7 +43,7 @@ const ViewCustomer = () => {
           <Tabs>
             <TabList>
               <Tab><div className='d-flex'><MdLanguage size={20} /> <h6>{t("BasicInfo")}</h6></div></Tab>
-              <Tab><div className='d-flex'><MdLanguage size={20} /> <h6>{t("fav_trips")}</h6></div></Tab>
+              {/* <Tab><div className='d-flex'><MdLanguage size={20} /> <h6>{t("fav_trips")}</h6></div></Tab> */}
             </TabList>
             <TabBody >
               <div className=" mt-4"><BasicInfo /></div>

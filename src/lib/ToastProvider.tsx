@@ -4,7 +4,8 @@ import 'react-toastify/dist/ReactToastify.css';
 
 function ToastProvider({ children }: any) {
   let What_the_language = localStorage.getItem('language')  ?? "en";
-
+  console.log(What_the_language);
+  
   return (
     <>
      <ToastContainer 

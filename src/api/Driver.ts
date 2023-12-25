@@ -10,7 +10,7 @@ import useUpdateMutation from "./helper/useUpdateMutation"
     GET: `/api/admin/driver/all`,
     GetOne:`/api/admin/driver/get`,
     ADD: "/api/admin/Driver/create",
-    UPDATE: "/api/admin/Driver/update",
+    UPDATE: "/api/admin/driver/update",
     DELETE: "/api/admin/Driver/delete",
     BLOCK:`api/admin/driver/block-status`,
     GIFT:`api/admin/code/give-gift`,

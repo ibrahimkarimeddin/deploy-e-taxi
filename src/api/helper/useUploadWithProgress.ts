@@ -24,9 +24,8 @@ export const useUploadWithProgress = (
 ): UploadWithProgressReturnType => {
   const axios = useAxios();
   const queryClient = useQueryClient();
-  const t = useTranslation();
   const [percentCompleted, setPercentCompleted] = useState<number>(0.0);
-
+  const {t} = useTranslation();
   const mutation = useMutation<
     AxiosResponse<any>,
     unknown,
@@ -51,12 +50,12 @@ export const useUploadWithProgress = (
     },
     {
       onSuccess: ({ data }) => {
-        toast.success(data.message || ("_messages.success.upload"));
+        toast.success(data.message || t("_messages.success.upload"));
         queryClient.invalidateQueries([key]);
       },
       onError: (err:any) => {
         const message =
-          err?.response?.data?.message || ("_messages.error.upload");
+          err?.response?.data?.message || t("_messages.error.upload");
         toast.error(message);
         // validateSession(err.response);
       },
