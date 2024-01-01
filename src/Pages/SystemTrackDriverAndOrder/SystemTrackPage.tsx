@@ -8,7 +8,6 @@ import { BASE_URL_SOCKET } from '../../lib/SocketProvider';
 
 
 
-k
 const SystemTrackPage = () => {
 
   const {t} = useTranslation();

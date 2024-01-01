@@ -5,8 +5,6 @@ export const BaseURL = `https://etaxi.sdnone.net/`;
 // export const BaseURL = `http://192.168.1.14:8000/`;
 export const BaseURL_IMAGE = BaseURL.slice(0,-1);
 
-// export const  BaseURL = "https://64df594871c3335b25827869.mockapi.io/"
-
 
 const PROJECT_NAME = "E_TAXI"
 
