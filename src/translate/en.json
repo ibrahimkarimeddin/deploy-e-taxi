@@ -903,7 +903,14 @@
         "un_blocking_":"un blocking ",
         "un_block_for_":"un block for ",
         "Add Successful":"Add Successful",
-        "Has Accepte the Order":"Has Accepte the Order"
-        
+        "Has Accepte the Order":"Has Accepte the Order",
+        "open":"Open",
+        "Driver Info":"Driver Info",
+        "Customer Info":"Customer Info",
+        "driver order today":"Driver order today",
+        "driver order yesterday":"Driver order yesterday",
+        "distance":"Distance",
+        "Send Order To Nearst 5 Driver":"Send Order To Nearst 5 Driver",
+        "one":"One"    
         
 }

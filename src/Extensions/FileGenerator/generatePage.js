@@ -42,10 +42,11 @@ function ${capitalizeFirstLetter(fileName)}Page() {
         data={data}
         isLoading={false}
         columns={column}
-    />
+      />
       
-    <Edit${capitalizeFirstLetter(fileName)}Modal />
-    <Add${capitalizeFirstLetter(fileName)}Modal />
+      <Edit${capitalizeFirstLetter(fileName)}Modal />
+      <Add${capitalizeFirstLetter(fileName)}Modal />
+      
     </DashBody>
   )
 }

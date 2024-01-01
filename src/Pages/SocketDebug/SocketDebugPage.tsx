@@ -13,9 +13,9 @@ import { useTranslation } from 'react-i18next'
 
 function SocketDebugPage() {
 
-    const column   =useTableColumns()
+    const column   = useTableColumns()
     const {t} = useTranslation();
-     const [data , setData] = useState<SocketDashboardDebugDataEvent[]>([])
+    const [data , setData] = useState<SocketDashboardDebugDataEvent[]>([])
     const [isConnected , setIsConnected] = useState(false)
 
      useEffect(()=>{

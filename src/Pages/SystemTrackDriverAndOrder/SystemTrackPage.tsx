@@ -8,11 +8,12 @@ import { BASE_URL_SOCKET } from '../../lib/SocketProvider';
 
 
 
-
+k
 const SystemTrackPage = () => {
 
   const {t} = useTranslation();
   const  [Driver , setDriver  ] = useState<null | any[]>(null)
+  
   const { isLoaded } = useJsApiLoader({
     id: 'google-map-script',
     googleMapsApiKey: "AIzaSyDZrGqtL1iBm9ZOTdfT-vW-3wpV-LO608M",
@@ -25,7 +26,6 @@ const SystemTrackPage = () => {
 
         setDriver(await getDriverOnline())
       }
-      
       
       goAsync();
     },[])

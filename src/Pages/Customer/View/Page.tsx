@@ -22,12 +22,14 @@ const ViewCustomer = () => {
   const { setObjectToEdit, objectToEdit } = usePageState()
   const {t} = useTranslation();
   const { id } = useParams()
-  const { data } = useGetSingleCustomer({customer_id:id})
-  // const {data  ,status } = useGetFavTrips({customer_id:id});
-
+  const { data } = useGetSingleCustomer({customer_id:id});
+  // const {data} = useGetFavTrips({customer_id:id});
+  // console.log(data);
+  
   useEffect(() => {
 
     setObjectToEdit(data);
+    // setObjectToEdit(data1);
 
   }, [data]);
 
@@ -37,13 +39,13 @@ const ViewCustomer = () => {
 
   return (
     <div className='ViewPage'>
-      {objectToEdit && data ?
+      {objectToEdit && data  ?
         <ViewPage {...ViewProps} showProgressBar={false}>
           <Rate defaultValue={4} disabled className='ms-2 fs-2 translate-middle-y' />
           <Tabs>
             <TabList>
               <Tab><div className='d-flex'><MdLanguage size={20} /> <h6>{t("BasicInfo")}</h6></div></Tab>
-              {/* <Tab><div className='d-flex'><MdLanguage size={20} /> <h6>{t("fav_trips")}</h6></div></Tab> */}
+              <Tab><div className='d-flex'><MdLanguage size={20} /> <h6>{t("fav_trips")}</h6></div></Tab>
             </TabList>
             <TabBody >
               <div className=" mt-4"><BasicInfo /></div>

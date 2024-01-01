@@ -1,10 +1,8 @@
-
 import * as Yup from "yup";
 import { buildFormData } from "../../api/helper/buildFormData";
 
 interface formUtilCommon {
-  // name: string,
-  // status: any
+
 }
 
 interface ObjectToEdit extends formUtilCommon {
@@ -24,9 +22,7 @@ export const getInitialValues = (objectToEdit: any | null = null): any => {
 
   return {
     id: objectToEdit?.id ?? 0,
-    driver_id:objectToEdit?.id ?? 0   ,
-    // image: objectToEdit?.image ?? "",
-    
+    driver_id:objectToEdit?.id ?? 0,
     full_name: objectToEdit?.full_name ?? "",
     code: objectToEdit?.code ?? "",
     wallet: objectToEdit?.wallet ?? "",
@@ -35,7 +31,6 @@ export const getInitialValues = (objectToEdit: any | null = null): any => {
     block_timer: objectToEdit?.block_timer ?? "",
     birthday: objectToEdit?.birthday ?? "",
     phone: objectToEdit?.phone ?? "",
-    // gender: objectToEdit?.gender ?? 0,.
     driver_image: objectToEdit?.avatar??'',
     created_at: objectToEdit?.created_at ?? "",
 
@@ -45,24 +40,7 @@ export const getInitialValues = (objectToEdit: any | null = null): any => {
     car_seat_count: objectToEdit?.car_seat_count ?? "",
     car_color: objectToEdit?.car_color ?? "",
 
-    //// images 
-    // car_front: objectToEdit?.images[0]?.media_path ?? "",
-    // car_right: objectToEdit?.images[1]?.media_path ?? "",
-    // car_internal: objectToEdit?.images[2]?.media_path ?? "",
-    // car_back: objectToEdit?.images[3]?.media_path ?? "",
-    // car_left: objectToEdit?.images[4]?.media_path ?? "",
-    // car_internal_back: objectToEdit?.images[5]?.media_path ?? "",
 
-    // //// Driver info
-    // license_front_image: objectToEdit?.images[6]?.media_path ?? "",
-    // license_backe: objectToEdit?.images[7]?.media_path ?? "",
-    // nationality_front: objectToEdit?.images[8]?.media_path ?? "",
-    // residential_card: objectToEdit?.images[9]?.media_path ?? "",
-    // nationality_back: objectToEdit?.images[10]?.media_path ?? "",
-    // yearly_back: objectToEdit?.images[11]?.media_path ?? "",
-    // yearly_front: objectToEdit?.images[12]?.media_path ?? "",
-
-    
     
     driver_image1: objectToEdit?.images[0]?.media_path??'',
     driver_image2: objectToEdit?.images[1]?.media_path??'',

@@ -15,7 +15,9 @@ const API = {
   UPDATEWALLET:`/api/admin/account/add-to-wallet`,
   UPDATE: `/api/admin/account/update`,
   DELETE: `/api/admin/account/delete`,
-  UPDATE_MY_ACCOUNT:`/api/admin/account/update-my-account`
+  UPDATE_MY_ACCOUNT:`/api/admin/account/update-my-account`,
+  UPDATE_PASSWORD: `/api/admin/account/change-password`,
+
 };
 
 const KEY: string = "ADMINS";
@@ -26,6 +28,7 @@ export const useUpdateWallet = (): any => useAddMutation("WALLET", API.UPDATEWAL
 
 export const useAddAccount = (): any => useAddMutation(MY_ACCOUNT, API.ADD);
 export const useUpdateAccount = (): any => useUpdateMutation(MY_ACCOUNT, API.UPDATE);
+export const useChangePassword = (): any => useUpdateMutation(MY_ACCOUNT, API.UPDATE_PASSWORD);
 export const useDeleteAccount = (): any =>useDeleteMutation(MY_ACCOUNT, API.DELETE, "account_id");
 
 export const getDataToSend = (values?: any, editMode?: boolean, objectToEdit?: any): any => {

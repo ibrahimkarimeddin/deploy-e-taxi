@@ -1,6 +1,6 @@
 import { ReactNode, lazy } from "react";
 
-// Icon Import 
+// Icons Import 
 
 import { Home } from "react-feather";
 import { AiFillQuestionCircle, AiFillStar} from "react-icons/ai"
@@ -19,9 +19,9 @@ import { MdOutlineManageAccounts } from "react-icons/md";
 import { TbBrandSocketIo } from "react-icons/tb";
 import { BsPersonFillAdd } from "react-icons/bs";
 
+// Pages Import
 
 import HomePage from "./Pages/Home/HomePage";
-import CategoryPage from "./Pages/category/CategoryPage";
 import OrderPage from "./Pages/order/OrderPage";
 import TransactionPage from "./Pages/Transaction/TransactionPage";
 import DriverPage from "./Pages/Driver/DriverPage";
@@ -41,7 +41,6 @@ import SingleOrder from "./Pages/order/viewOne/SingleOrder";
 import AddRolePage from "./Pages/Role/AddPage/AddRolePage";
 import AddAccount from "./Pages/Account/AddAccount/AddccountPage";
 import EditAccount from "./Pages/Account/EditAccount/EditAccount";
-// import OneDriverPage from './Pages/Driver/View/Page'
 import ViewCustomer from "./Pages/Customer/View/Page";
 import AddNotificationPage from "./Pages/Notification/AddPage/AddNotificationPage";
 import SocketDebugPage from "./Pages/SocketDebug/SocketDebugPage";
@@ -50,7 +49,7 @@ import FavouriteTripsPage from "./Pages/Customer/FavoriteTrip/FavouriteTripsPage
 
 
 interface RoutesLinksType {
-    name: string,
+    name?: string,
     href?: string,
     element?: ReactNode,
     icon?: any,
@@ -70,7 +69,6 @@ export const RoutesLinks: RoutesLinksType[] = [
     },
     {
         icon: <FaUserFriends size={30} />,
-        // href: "/information",
         element: <OrderPage/>,
         name: "user_management",
         children :[
@@ -210,46 +208,38 @@ export const RoutesLinks: RoutesLinksType[] = [
 
 /////////////// hidden route
     {
-        name: "s",
         href: "/information/driver/:id",
         element: <ViewDriver />,
         hidden: true
     },
     {
-        name: "s",
         href: "/information/customer/:id",
         element: <ViewCustomer />,
         hidden: true
     },
     {
-        name: "s",
         href: "/favTrip/customer/:id",
         element: <FavouriteTripsPage />,
         hidden: true
     },
     {
-        name: "add_Role",
         href: "/Account/Role/Add",
         element: <AddRolePage />,
         hidden:true
     },
     {
-        name: "add_notification",
         href: "/Notification/Add",
         element: <AddNotificationPage />,
         hidden:true
     },
     {
-        name: "edit_account",
         href: "/Account/Edit",
         element: <EditAccount
-         location={{
-        state: undefined}}
-             />,
+        location={{state: undefined}}
+         />,
         hidden:true
     },
     {
-        name: "SingleOrder",
         href: "/Order/:id",
         element: <SingleOrder />,
         hidden:true

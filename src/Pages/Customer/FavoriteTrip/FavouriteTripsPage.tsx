@@ -7,27 +7,32 @@ import useTableColumns from './useTableColumns'
 import { QueryStatusEnum } from '../../../config/QueryStatus'
 import { useGetFavTrips } from '../../../api/Customer'
 import { useParams } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 
 function FavouriteTripsPage() {
 
     const column   =useTableColumns()
     const { id } = useParams()
-    const {data  ,status } = useGetFavTrips({customer_id:id});
-    
+    const {t} = useTranslation();
+
+    const {data} = useGetFavTrips({customer_id:id});
+
     // console.log(data);
-    
+    // console.log(data?.data);
+
   return (
-    // Pass Status to Layout 
-    <DashBody status={status as QueryStatusEnum} >
-      <DashHeader showAddButton={false} title={'FavouriteTrips'}></DashHeader>
-      
-      <LyTable
-        data={data}
-        isLoading={false}
-        columns={column}
-    />
-      
-    </DashBody>
+    <div>
+      <h1>{t("FavouriteTrips")}</h1>
+
+        <LyTable
+          data={data?.data}
+          isLoading={false}
+          columns={column}
+          is_pagination={true}
+          total={data?.pagination?.total}
+      />
+
+    </div>
   )
 }
 

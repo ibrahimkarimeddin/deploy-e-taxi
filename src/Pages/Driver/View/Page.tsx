@@ -12,7 +12,7 @@ import DriverInfo from './DriverInfo';
 import OrderInfo from './OrderInfo';
 import { usePageState } from '../../../lib/state mangment/LayoutPagestate';
 import { useParams } from 'react-router-dom';
-import { useGetOneDriver, useUpdateDriver } from '../../../api/Driver';
+import { useGetDriverOrder, useGetOneDriver, useUpdateDriver } from '../../../api/Driver';
 import { Spinner } from 'reactstrap';
 import LoadingPage from '../../../Layout/app/LoadingPage';
 import { useTranslation } from 'react-i18next';
@@ -22,30 +22,29 @@ import { buildFormData } from '../../../api/helper/buildFormData';
 const ViewDriver = () => {
   const [BarStatus, setBarStatus] = useState({ value: 0, isLoading: false, isError: false, isSuccess: false })
   const {mutate} = useUpdateDriver()
+  
   const handleSubmit = (values:any)=>{
-    
-    console.log(values);
+
   const new_images =(change_values_shap((values)))
   const new_obj = {
     images:new_images,
     driver_id :id,
-    // full_name:values['driver_name'],
+    full_name:values['full_name'],
     code:values['code'],
     gender:values['driver_gender'] == 'Male' ? 0 :1,
-    // birthday:values['driver_birthday'],
-    // phone:values['driver_phone'],
+    birthday:values['birthday'],
+    phone:values['phone'],
     car_model:values['car_model'],
     car_color:values['car_color'],
     car_seat_count:values['car_seat_count'],
     car_type:values['car_type'],
-    license_id:values['license_id'],
-    nationality_id:values['nationality_id'],
-    residential_card_number:values['residential_card_number'],
-    yearly_id:values['yearly_id'],
+    // license_id:values['license_id'],
+    // nationality_id:values['nationality_id'],
+    // residential_card_number:values['residential_card_number'],
+    // yearly_id:values['yearly_id'],
     driver_image:values['driver_image']
 }
-// console.log(new_obj)
-const formData = new FormData();
+  const formData = new FormData();
   buildFormData(formData, new_obj);
   mutate(formData)
 }
@@ -54,6 +53,8 @@ const formData = new FormData();
   const { id } = useParams()
   const { data } = useGetOneDriver({driver_id:id})
 
+  console.log(data);
+  
   useEffect(() => {
 
     setObjectToEdit(data);
@@ -67,7 +68,7 @@ const formData = new FormData();
   return (
     <div className='ViewPage'>
       {objectToEdit && data ?
-        <ViewPage {...ViewProps}>
+        <ViewPage  {...ViewProps}>
           <Rate defaultValue={4} disabled className='ms-2 fs-2 translate-middle-y' />
           <Tabs>
             <TabList>
@@ -76,7 +77,7 @@ const formData = new FormData();
               <Tab><div className='SignleDriverContainer'><span className='SignleDriverInfoIcon'><BsInfoCircle size={20} /></span> <h6 className='SingleDriverInfo'>{t("Additional Car Info")}</h6></div></Tab>
               <Tab><div className='SignleDriverContainer'><span className='SignleDriverInfoIcon'><BsInfoCircle size={20} /></span> <h6 className='SingleDriverInfo'>{t("Additional Driver Info")}</h6></div></Tab>
 
-              {/* <Tab><div className='SignleDriverContainer'><span className='SignleDriverInfoIcon'><BsInfoCircle size={20} /></span><h6 className='SingleDriverInfo'>{t("driver_order")}</h6></div></Tab> */}
+              <Tab><div className='SignleDriverContainer'><span className='SignleDriverInfoIcon'><BsInfoCircle size={20} /></span><h6 className='SingleDriverInfo'>{t("driver_order")}</h6></div></Tab>
 
             </TabList>
             <TabBody >

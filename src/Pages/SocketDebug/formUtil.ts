@@ -28,8 +28,6 @@ export const getInitialValues = (objectToEdit: ObjectToEdit | null = null): Init
     name:objectToEdit?.name ?? "",
     email:objectToEdit?.email?? ""
   }
-
-
 };
 
 export const getValidationSchema = (editMode: boolean = false): Yup.Schema<ValidateSchema> => {

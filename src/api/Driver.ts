@@ -1,5 +1,3 @@
-
-
 import useGetQueryPagination from "./helper/ueGetPagination";
 import useAddMutation from "./helper/useAddMutation"
 import useDeleteMutation from "./helper/useDeleteMutation"
@@ -18,7 +16,8 @@ import useUpdateMutation from "./helper/useUpdateMutation"
     SENDNOT:`/api/admin/driver/accept`,
     UPDATE_STATUS2:`/api/admin/verfiy_driver`,
     GET_ORDER_DRIVER_WITH_OUT_PAGINITION:`/api/admin/driver/all-without-pagination` ,
-    GET_DRIVRE_TRACK_INFO:`/api/admin/driver/track_info`
+    GET_DRIVRE_TRACK_INFO:`/api/admin/driver/track_info`,
+    GET_ORDER_DRIVER:`/api/admin/driver/orders` ,
   };
   
   const KEY = "DRIVER";
@@ -35,6 +34,5 @@ import useUpdateMutation from "./helper/useUpdateMutation"
   export const useUnBlockDriver = () => useAddMutation(KEY, API.UNBLOCK);
   export const useToggleStatusDriver = () =>useAddMutation(KEY, API.UPDATE_STATUS2);
   export const useGetDriverForSelect=(params:any)=>useGetQuery("SINGLE",API.GET_ORDER_DRIVER_WITH_OUT_PAGINITION,params);
-
-
+  export const useGetDriverOrder = (params?:any) => useGetQuery(KEY, API.GET_ORDER_DRIVER , params,"driver_id");
   export const useGetDriverInfoForSystemTrack  = (params:any , options :any)=>useGetQuery("SINGLE_DRIVER"  , API.GET_DRIVRE_TRACK_INFO , params , options )

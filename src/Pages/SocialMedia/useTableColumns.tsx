@@ -22,7 +22,14 @@ const useTableColumns :any = () => {
         name: t("link"),
         sortable: false,
         center: "true",
-        cell: (row:any) => row?.social_media_link
+        cell: (row:any) =>
+        <a
+            href={row.social_media_link}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {row.social_media_link}
+        </a>
       },
       {
         name: t("image"),

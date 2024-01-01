@@ -23,7 +23,6 @@ function Edit${capitalizeFirstLetter(fileName)}Modal() {
      isAddModal={false}
      getInitialValues={getInitialValues(objectToEdit)} 
      handleSubmit={() => { }}
-     isLoading={false}
      headerText='Edit Modal' 
      getValidationSchema={getValidationSchema(objectToEdit)}>
       <Form${capitalizeFirstLetter(fileName)} />

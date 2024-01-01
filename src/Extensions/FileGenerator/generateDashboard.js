@@ -25,9 +25,6 @@ const RunCommand = async()=>{
      exec(CreateEditModal)
      exec(CreateForm)
 
-
-
-
 } 
 
 RunCommand()

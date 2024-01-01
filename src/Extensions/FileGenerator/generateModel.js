@@ -39,11 +39,10 @@ function Add${capitalizeFirstLetter(fileName)}Modal() {
      handleSubmit={handelSubmit} 
      status={status as QueryStatusEnum}
      headerText={t('Add') +t('${(fileName)}')}
-     
      getValidationSchema={getValidationSchema()}>
 
-    <Form${capitalizeFirstLetter(fileName)} />
-  </LayoutModal>
+      <Form${capitalizeFirstLetter(fileName)} />
+    </LayoutModal>
   )
 }
 

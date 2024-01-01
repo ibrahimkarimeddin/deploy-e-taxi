@@ -40,8 +40,8 @@ const NotificationForm: FC<NotificationFormProps> = () => {
             placeholder={t('type')}
             type="Select"
             option={[
-              {label:"driver" , value:"driver"} ,
-              {label:"customer" , value:"customer"} 
+              {label:t("driver") , value:"driver"} ,
+              {label:t("customer") , value:"customer"} 
             ]}
           />
 
@@ -49,14 +49,14 @@ const NotificationForm: FC<NotificationFormProps> = () => {
             <span style={{ marginInline: 50 }}>
               <Field name="send_to" type="radio" value={'all'} />
               {' '}
-              <Label check>
+              <Label className='dark_mode_white_color' check>
                 {t('all')}
               </Label>
             </span>
 
             <Field type="radio" name="send_to" value={'one'} />
             {' '}
-            <Label check>
+            <Label className='dark_mode_white_color' check>
               {t('one')}
             </Label>
           </FormGroup>

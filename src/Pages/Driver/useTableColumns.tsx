@@ -13,7 +13,9 @@ import { useNavigate } from "react-router-dom";
 import { useAcceptedDriver, useToggleStatusDriver } from "../../api/Driver";
 import { ToggleStatus } from "../../Components/Ui/ToggleStatus";
 import LoadingSpinner from "../../Components/Ui/LoadingSpinner";
-
+import TripleSwitch from "../../Components/Ui/ThreeSwitchState/TripleSwitch"
+import type { RadioChangeEvent } from 'antd';
+import { Radio } from 'antd';
 
 const useTableColumns: any = () => {
   const [t] = useTranslation();
@@ -22,8 +24,10 @@ const useTableColumns: any = () => {
 
   const toggleMutation = useAcceptedDriver();
   const toggleMutation2= useToggleStatusDriver()
-  const handleChange = (checked:any)=> {
-    toggleMutation.mutate({driver_id:checked})
+
+  const handleChange = (checked:any,status:any)=> {    
+    toggleMutation.mutate({driver_id:checked, auth_status:status.target.value})
+
   }
   return useMemo(
     () => [
@@ -59,24 +63,25 @@ const useTableColumns: any = () => {
       {
         name: t("status"),
         center: "true",
-        cell: (row:any) => {
-          if(toggleMutation?.isLoading && row?.auth_status == '0'){
-            return <LoadingSpinner />  
-          }
-         if(!(row.auth_status ==='0')){
-          return <span style={{color:"white" ,background:"#19ab27" , padding:"10px", width:80  ,fontSize:10  , borderRadius:12, textAlign:"center" }}>{t('accepted')}</span>
-         }
+        cell: (row:any) => { 
           return (
-            <div>
-              <p style={{margin:"0"}}>{t('pending')}</p>
-                <label>
-                  <Switch onChange={()=>handleChange(row.id)} checked={false} />
-                </label>
-            </div>
-          )
-          
+            <Radio.Group  onChange={(checked)=>handleChange(row.id, checked)} defaultValue={row?.auth_status}>
+              <Radio.Button value="3">{t("accepted")}</Radio.Button>
+              <Radio.Button value="0">{t("pending")}</Radio.Button>
+              <Radio.Button value="2">{t("rejected")}</Radio.Button>
+            </Radio.Group>
+        )  
         },
       },
+      {
+        name: t("phone"),
+        center: "true",
+        cell: (row: any) => row?.phone
+      },
+      
+          // if(toggleMutation?.isLoading && row?.auth_status == '0'){
+          //   return <LoadingSpinner />  
+          // }
       // {
       //   name: t("phone_verfication"),
       //   center: "true",
@@ -93,6 +98,7 @@ const useTableColumns: any = () => {
       //     return <p>{t('done')}</p>
       //   },
       // },
+
       {
         name: "#",
         sortable: false,

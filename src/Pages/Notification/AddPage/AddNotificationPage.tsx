@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { Card, CardBody, Container } from 'reactstrap';
+import { Button, Card, CardBody, CardHeader, Container } from 'reactstrap';
 import { Form, Formik } from 'formik';
 
 import { useAddNotification } from '../../../api/Notification';
@@ -20,17 +20,11 @@ const AddNotificationPage: FC<AddNotificationPageProps> = () => {
   const handleSubmit = (value: any) => {
 
     console.log(value);
-    
-    const data  = {...value}
-    data['type'] = data['type']['label']
-    
-    // let data_to_send = {
-    //   ...value,
-    //   receiver_ids: value.send_to === 'all',
-    // };
-    // delete data_to_send['code'];
-    // delete data_to_send['select'];
-    // delete data_to_send['send_to'];
+
+    const data  = {
+      ...value,
+      type:typeof  value['type'] == "string" ?   value['type']: value['type']['label']
+    }
     mutate(getDataToSend(data));
   };
 
@@ -45,11 +39,16 @@ const AddNotificationPage: FC<AddNotificationPageProps> = () => {
       <h3 style={{ padding: 5 }}>{t('add_notification')}</h3>
       <Card>
         <Container style={{ marginBottom: 160 }}>
-          <h3 style={{ textAlign: 'center', margin: '20px 0 ' }}>{t('notification_form')}</h3>
+          <CardHeader style={{ display: 'flex', justifyContent: 'space-between', width: '100%' }}>
+            <h3 className='dark_mode_white_color'>{t('notification_form')}</h3>
+            <Button onClick={() => Navigate('/Notification')} color="primary">
+                {t('back')}
+            </Button>
+          </CardHeader>
           <Formik
             onSubmit={handleSubmit}
             validationSchema={getValidationSchema}
-            initialValues={getInitialValues()}
+            initialValues={getInitialValues(t)}
           >
             {(formik) => (
               <Form>

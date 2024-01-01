@@ -21,7 +21,7 @@ interface ValidateSchema extends formUtilCommon {
 }
 
 export const getInitialValues = (objectToEdit: any | null = null): any => {
-  console.log(objectToEdit?.images?.at(0)?.media_path, "objectToEdit");
+  // console.log(objectToEdit?.images?.at(0)?.media_path, "objectToEdit");
 // console.log(objectToEdit);
 
   return {

@@ -27,7 +27,7 @@ const LoginForm = () => {
     mutate(values)
     // Implemnt Your Auth Code 
   }
-  
+
   return (
     <div className='LoginForm'>
       <img className='Logo' src="/Layout/etaxlogo.svg" alt="Logo" />
@@ -46,7 +46,6 @@ const LoginForm = () => {
             <h4 className='Login_H4'>
               {t("Welcome back, please login to your account.")}
             </h4>
-           
             
             <KarimField
               placeholder={t('email')}

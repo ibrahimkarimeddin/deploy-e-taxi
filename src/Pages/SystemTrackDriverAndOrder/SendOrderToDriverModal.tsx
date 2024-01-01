@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { findNearestDrivers } from './Utils/calculateDistance'
 import DataTable from 'react-data-table-component'
 import { MdOutlineSendToMobile } from 'react-icons/md'
+import { useTranslation } from 'react-i18next'
 
 interface ModalProps {
     isOpen: boolean 
@@ -11,10 +12,13 @@ interface ModalProps {
     drivers:any
 }
 function SendOrderToDriverModal({isOpen , setIsOpen , drivers , order}:ModalProps) {
+
+    const {t} = useTranslation();
     const [nearestDrivers , setnearestDrivers ] = useState<any[]>([])
     const handleOk = ()=>{
         setIsOpen((v:any) =>!v)
     }
+    
     const handleCancel = ()=>{
         setIsOpen((v:any) =>!v)
 
@@ -30,15 +34,10 @@ function SendOrderToDriverModal({isOpen , setIsOpen , drivers , order}:ModalProp
         
     },[isOpen])
   return (
-    <Modal title="Send Order To Nearst 5 Driver  " open={isOpen} onOk={handleOk} onCancel={handleCancel}>
-        
-
+    <Modal title={t("Send Order To Nearst 5 Driver")} open={isOpen} onOk={handleOk} onCancel={handleCancel}>
             <DataTable
-
-                columns={Columns}
-               data={nearestDrivers}
-
-
+              columns={Columns}
+              data={nearestDrivers}
             />
       </Modal>
   )

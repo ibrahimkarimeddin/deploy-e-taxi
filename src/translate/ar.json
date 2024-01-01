@@ -942,7 +942,15 @@
         "un_blocking_":"فك حظر ",
         "un_block_for_":"فك حظر ",
         "Add Successful":"تم الوضع بنجاح",
-        "Has Accepte the Order":"قبل الطلب"
+        "Has Accepte the Order":"قبل الطلب",
+        "open":"افتح",
+        "Driver Info":"معلومات السائق",
+        "Customer Info":"معلومات االزبون",
+        "driver order today":"طلبات السائق اليوم",
+        "driver order yesterday":"طلبات السائق اليوم الماضي",
+        "distance":"المسافة",
+        "Send Order To Nearst 5 Driver":"ارسل الطلب لاقرب 5 سائقين",
+        "one":"واحد"    
 
 
 

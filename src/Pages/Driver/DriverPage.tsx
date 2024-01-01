@@ -50,6 +50,7 @@ function DriverPage() {
       </DashHeader>
 
       <LyTable
+      
         data={data?.data}
         isLoading={false}
         columns={column}

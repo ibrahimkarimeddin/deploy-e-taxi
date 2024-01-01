@@ -1,7 +1,8 @@
 .Auth{
     // background: url('../../../public/Layout/LoginBg.jpg');
+    
     .In_Auth{
-        background-color: white;
+        background-color: var(--bg);
         display: flex;
         justify-content: center; align-items: center;
         gap: 30px;
@@ -10,6 +11,7 @@
     }
     .LoginForm{
         display: flex; flex-direction: column;
+        
         .Login_Nav{
             display: flex; justify-content: space-between ; align-items: center;
             margin-bottom: 30px; 
@@ -24,15 +26,11 @@
     }
     .Left_Col{
         background-color: #edf4f4;
-
     }
 
     .img-fluid{
         width: 30vw;
         height: 100%;
-        
-
-
     }
     .Login_H4{
         width: 90%;
@@ -48,7 +46,7 @@
     }
     @media screen and (max-width: 800px)  {
         .Left_Col{
-display: none;    
+            display: none;    
         }
       
          .LoginForm{
@@ -98,4 +96,61 @@ display: none;
     }
 
 
+}
+
+.Logo{
+    width: 100%;
+}
+
+.dark{
+    .Left_Col{
+        background-color: #343434;
+    }
+    .Login_H4, .Reserved{
+        color: #fff;
+    }
+    .Login_Nav{
+        h5{
+            color: #fff;
+        }
+    }
+}
+.glass{
+    .Left_Col{
+        background-color: inherit;
+    }
+    .Login_H4, .Reserved{
+        color: #000;
+    }
+    .Login_Nav{
+        h5{
+            color: #000;
+        }
+    }
+}
+
+
+.ar{
+    .LoginForm{
+        .Logo{
+            transform: translate(-90px ,-40px);
+        }
+    }
+}
+
+
+@media screen and (max-width:400px) {
+    
+    .ar{
+        .LoginForm{
+            .Logo{
+                transform: translate(-70px ,-30px) !important;
+                
+            }
+        }
+    }
+}
+
+.logo_link{
+    display: none !important;
 }

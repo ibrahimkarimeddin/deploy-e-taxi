@@ -8,7 +8,7 @@ import { useDeleteAccount } from "../../../api/Account";
 import { RiLockPasswordFill } from "react-icons/ri";
 
 
-const useTableColumns :any = () => {
+const useTableColumns :any = (setEditPasswordModal:any  ,setObjectToEdit: any) => {
   const [t] = useTranslation();
   const navigate = useNavigate();
   const deleteMutation = useDeleteAccount();
@@ -58,14 +58,15 @@ const useTableColumns :any = () => {
               showEdit={true}
               onDelete={() => deleteMutation.mutate({id:row.id })}
               />
-              {/* <RiLockPasswordFill
+              <RiLockPasswordFill
               onClick={() => {
-                // setEditPasswordModal(true);
-                // setObjectToEdit(row);
+                // navigate('/')
+                setEditPasswordModal(true);
+                setObjectToEdit(row);
               }}
               className="lock_icon"
               size={22}
-            /> */}
+            />
             </>
         ),
       },

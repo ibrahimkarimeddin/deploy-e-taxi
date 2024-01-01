@@ -14,15 +14,14 @@ import useAddMutation from "./helper/useAddMutation"
 import useDeleteMutation from "./helper/useDeleteMutation"
 import useGetQuery from "./helper/useGetQuery"
 import useUpdateMutation from "./helper/useUpdateMutation"
-  
+
   const API = {
     GET: "/api/admin/${fileName}",
     ADD: "/api/admin/${fileName}/create",
     UPDATE: "/api/admin/${fileName}/update",
     DELETE: "/api/admin/${fileName}/delete",
   };
-  
-   
+
   const KEY = "${fileName.toUpperCase()}";
   export const useGet${capitalizeFirstLetter(fileName)} = (params?:any) => useGetQuery(KEY, API.GET, params);
   export const useAdd${capitalizeFirstLetter(fileName)} = () => useAddMutation(KEY, API.ADD);

@@ -1,5 +1,6 @@
 import * as Yup from "yup";
 import { buildFormData } from "../../../api/helper/buildFormData";
+import { useTranslation } from "react-i18next";
 
 interface FormValues {
   content: string;
@@ -9,11 +10,10 @@ interface FormValues {
   title: string;
   select: string;
 }
-
-export const getInitialValues = (): any => {
+export const getInitialValues = (t:any): any => {
   return {
     content: "",
-    type: {label:"driver" , value:"driver"},
+    type: {label:t("driver") , value:"driver"},
     send_to: "",
     image: "",
     title: "",
@@ -27,18 +27,12 @@ export const getValidationSchema = (editMode = false) => {
     title: Yup.string().required("Required"),
     type: Yup.mixed().required("Required"),
     send_to: Yup.string().required("Required"),
-    // code: Yup.string().when("send_to", {
-    //   is: (to: string) => {
-    //     return to === "one";
-    //   },
-    //   then: Yup.string().required("Required"),
-    //   otherwise: Yup.string()
-    // })
   });
 };
 
 export const getDataToSend = (values: FormValues): FormData => {
   const data = { ...values };
+ 
   if (values.image === "") {
     // delete data["image"];
   }

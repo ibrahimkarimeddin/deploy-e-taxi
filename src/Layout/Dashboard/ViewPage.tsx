@@ -17,12 +17,13 @@ type TViewPage ={
    BarStatus:any,
    showProgressBar?:boolean,
 }
+
 const ViewPage: React.FC<TViewPage>=  ({children,getInitialValues, getValidationSchema,handleSubmit,BarStatus,showProgressBar = true})=> {
     
     const {objectToEdit} = usePageState()
     const {data, isLoading, isError} = useUpdateDriver();
     const {t} = useTranslation();
-  const navigate = useNavigate();
+    const navigate = useNavigate();
   // console.log(BarStatus);
 
   return (

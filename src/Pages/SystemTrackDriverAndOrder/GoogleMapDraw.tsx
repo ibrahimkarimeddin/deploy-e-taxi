@@ -12,17 +12,6 @@ import SendOrderToDriverModal from './SendOrderToDriverModal'
 import { toast } from 'react-toastify'
 import { useTranslation } from 'react-i18next'
 
-// interface DriverSocketType {
-//   avatar? :string |null
-//   country_code?: string |null
-//   full_name?:string |null
-//   gender?: string |null
-//   id: number
-//   lat: string
-//   long: string
-//   phone?: string |null
-// }
-
 const GoogleMapDraw = ({ drivers }: { drivers: any[] }) => {
 
 
@@ -86,22 +75,22 @@ const GoogleMapDraw = ({ drivers }: { drivers: any[] }) => {
 
     socket?.on(SocketEventLisntEnum.SOCKET_ACCEPTE_ORDER, function (data:any) {
       console.log(data?.driver_id);
+
       const { lat_from , long_from  , id } = data?.data      
       toast.success(`${t("driver")} ${data['driver_id']} ${t("Has Accepte the Order")} ${id}`)
       setDrivers((prevDrivers:any) =>
         prevDrivers.map((driver:any) =>
           driver.id == data?.driver_id
-            ? { ...driver, order: {lat_from , long_from , is_have_order:true} }
+              ? { ...driver, order: {lat_from , long_from , is_have_order:true} }
             : driver
         )
       );
-      
     })
 
     socket?.on(SocketEventLisntEnum.SOCKET_START_ORDER, function (data:any) {
       console.log(data);
 
-  setDrivers((prevDrivers:any) =>
+      setDrivers((prevDrivers:any) =>
         prevDrivers.map((driver:any) =>
           driver.id == data?.driver_id
             ? { ...driver, order:null }
@@ -110,9 +99,8 @@ const GoogleMapDraw = ({ drivers }: { drivers: any[] }) => {
       );
       
       setOrders((prevOrder: any) =>
-      prevOrder.filter((order: any) => order.id !== data?.order_id)
-    );
-      
+        prevOrder.filter((order: any) => order.id !== data?.order_id)
+      );
     })
     
     return () => {
@@ -123,7 +111,7 @@ const GoogleMapDraw = ({ drivers }: { drivers: any[] }) => {
   }, [])
 
 
-console.log(Orders);
+  console.log(Orders);
 
 
   return (
@@ -135,7 +123,7 @@ console.log(Orders);
           setOpen={setOpen}
           iopen={true}
 
-          button={<Button type="primary">Open</Button>}
+          button={<Button type="primary">{t("open")}</Button>}
         >
           <DriverInformation driver_id={driverId} />
           {/* Your content goes here */}

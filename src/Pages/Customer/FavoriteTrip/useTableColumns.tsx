@@ -17,25 +17,7 @@ const useTableColumns :any = () => {
         center: "true",
         cell: (row:any) => row?.email
       },
-      {
-        name: t("email"),
-        sortable: false,
-        center: "true",
-        cell: (row:any) => row?.email
-      },
-      {
-        name: t("email"),
-        sortable: false,
-        center: "true",
-        cell: (row:any) => row?.email
-      },
-      {
-        name: t("email"),
-        sortable: false,
-        center: "true",
-        cell: (row:any) => row?.email
-      },
-     
+
     ],
     [t]
   );

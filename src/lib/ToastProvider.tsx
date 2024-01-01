@@ -9,7 +9,6 @@ function ToastProvider({ children }: any) {
   return (
     <>
      <ToastContainer 
-     
      position={What_the_language === "en" ?  "top-right" : "top-left"}
     autoClose={5000}
     hideProgressBar={false}

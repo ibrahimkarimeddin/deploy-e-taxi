@@ -26,7 +26,6 @@ const BasicInfo = () => {
         <KarimField name="birthday" label='driver_birthday' placeholder='Driver Birithday' />
         <KarimField name="phone" label='phone' placeholder='phone' />
         <KarimField name="gender" label='gender' placeholder='gender' type='Select' option={DataGender}  isDisabled />
-
       </Col>
       <Col>
         <KarimField type='File' name="driver_image" placeholder='Driver Image' label='driver_image' />
