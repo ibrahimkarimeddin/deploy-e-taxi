@@ -24,13 +24,13 @@ const useTableColumns :any = () => {
         cell: (row:any) => +(row.value)
       },
       {
-        name: t("created_at"),
+        name: t("created_by"),
         sortable: false,
         center: "true",
         cell: (row:any) => row?.user_name
       },
       {
-        name: t("created_at"),
+        name: t("status"),
         sortable: false,
         center: "true",
         cell: (row:any) => {

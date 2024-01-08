@@ -45,7 +45,6 @@ const SingleOrderPage: React.FC = () => {
 
   return (
     <Card>
-
       <CardHeader>
         <CardTitle className='Single_order_title' style={{ display: 'flex', justifyContent: 'space-between', width: '100%' }}>
           {t('order_information')}
